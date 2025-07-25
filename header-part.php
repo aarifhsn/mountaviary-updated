@@ -14,9 +14,9 @@
   } ?>
 
   <!-- Dark Mode  -->
-  <div class="fixed top-2 right-4 z-50">
+  <div class="fixed top-4 right-4 z-50">
     <button id="dark-mode-toggle" class="text-xl">
-      <span id="dark-mode-icon">🌞</span>
+      <span id="dark-mode-icon" class="border border-gray-400 p-2 rounded ">🌞</span>
     </button>
   </div>
 

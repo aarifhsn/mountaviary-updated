@@ -11,7 +11,7 @@ get_header('part'); ?>
     <div class="devs_top_content">
       <h2 class="relative text-3xl md:text-5xl 2xl:text-8xl text-slate-700 dark:text-slate-300 font-extrabold capitalize">
         <span
-          class="font-extrabold text-slate-200 dark:text-slate-700 absolute -mt-4 md:-mt-6 2xl:-mt-14 -left-2"><?php echo esc_html(get_theme_mod('mountaviary_front_span_text')); ?></span>
+          class="font-extrabold text-slate-200 dark:text-slate-800 absolute -mt-4 md:-mt-6 2xl:-mt-14 -left-2"><?php echo esc_html(get_theme_mod('mountaviary_front_span_text')); ?></span>
         <span class="relative"><?php echo esc_html(get_theme_mod('mountaviary_front_name_text')); ?></span>
       </h2>
       <p
@@ -38,7 +38,7 @@ get_header('part'); ?>
             <?php $tech_stack = ['PHP', 'LARAVEL', 'WordPress', 'VueJS', 'AlpineJS', 'Livewire', 'FilamentPHP', 'TailwindCSS'];
 
             foreach ($tech_stack as $stack) {
-              echo '<span class="px-3 py-2 bg-gradient-to-r from-gray-50 to-gray-200 border border-gray-100 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-200  transition-all duration-300 transform mr-1">' . $stack . '</span>';
+              echo '<span class="px-3 py-2 bg-gradient-to-r from-gray-50 to-gray-200 border border-gray-100 dark:border-gray-700 rounded-lg dark:bg-transparent dark:from-transparent dark:to-transparent dark:text-slate-200 text-sm font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-200  transition-all duration-300 transform mr-1">' . $stack . '</span>';
             }
 
             ?>
@@ -50,12 +50,12 @@ get_header('part'); ?>
         <?php if (get_option('front_work_portfolio_option', 1)) { ?>
           <div class="cont_marge flex my-8 text-slate-600 dark:text-slate-300">
             <h3 class="hello">
-              <a class="p-4 font-semibold border hover:border-slate-600 dark:hover:border-slate-400 hover:text-slate-800 border-slate-300 dark:border-slate-600 border-solid relative"
+              <a class="p-4 font-semibold border hover:border-slate-600 dark:hover:border-slate-400 hover:text-slate-800 dark:hover:text-slate-100 border-slate-300 dark:border-slate-600 border-solid relative"
                 href="#contact">Say Hello
               </a>
             </h3>
             <h3 class="my_work">
-              <a class="px-7 py-4 font-semibold hover:text-slate-800" href="#portfolio">My Work
+              <a class="px-7 py-4 font-semibold hover:text-slate-800 dark:hover:text-slate-100" href="#portfolio">My Work
                 <span class="ml-2 -rotate-45 absolute text-xs"><i class="fa-solid fa-arrow-right"></i></span>
               </a>
             </h3>
@@ -85,11 +85,11 @@ get_header('part'); ?>
               $url = get_theme_mod("{$platform}_url");
               if ($platform !== 'email') {
                 if ($url) {
-                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 dark:border-slate-600 hover:border-slate-400 border-solid' href='" . esc_url($url) . "' target='_blank'><i class='$icon_class'></i></a></li>";
+                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 dark:border-slate-600 hover:border-slate-400 dark:hover:bg-slate-800 border-solid' href='" . esc_url($url) . "' target='_blank'><i class='$icon_class'></i></a></li>";
                 }
               } else {
                 if ($url) {
-                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 hover:border-slate-400 border-solid' href='mailto:" . esc_attr($url) . "'' target='_blank'><i class='$icon_class'></i></a></li>";
+                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border dark:hover:bg-slate-800 border-slate-200 hover:border-slate-400 border-solid' href='mailto:" . esc_attr($url) . "'' target='_blank'><i class='$icon_class'></i></a></li>";
                 }
               }
             }
@@ -438,11 +438,11 @@ get_header('part'); ?>
   if ($the_query->have_posts()):
     ?>
     <section id="blog"
-      class="bg-gray-100 px-4 py-12 font-poppins blog_posts min-h-[480px] md:min-h-screen my-20 md:mb-12 lg:mb-24">
+      class="bg-gray-100 dark:bg-gray-900 px-4 py-12 font-poppins blog_posts min-h-[480px] md:min-h-screen my-20 md:mb-12 lg:mb-24">
 
       <!-- Section Header -->
       <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold mb-4 text-gray-800 uppercase">
+        <h2 class="text-5xl font-bold mb-4 text-gray-800 dark:text-gray-200 uppercase">
           <?php echo esc_html(get_theme_mod('mountaviary_blog_title_text', 'Blog Posts')); ?>
         </h2>
       </div>
@@ -452,7 +452,7 @@ get_header('part'); ?>
         <?php while ($the_query->have_posts()):
           $the_query->the_post(); ?>
 
-          <div class="blog-post bg-white shadow-sm mb-8 rounded-lg box-border ">
+          <div class="blog-post bg-white dark:bg-gray-800 shadow-sm mb-8 rounded-lg box-border ">
 
             <?php if (has_post_thumbnail()): ?>
               <div class="thumbnail overflow-hidden">
@@ -464,14 +464,15 @@ get_header('part'); ?>
 
             <div class="post_title pt-2 mt-2 text-xl px-8">
               <?php
-              the_title('<h2 class="entry-title"><a class="font-semibold text-slate-700 leading-8 hover:text-slate-900" href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
+              the_title('<h2 class="entry-title"><a class="font-semibold text-slate-700 dark:text-slate-100 leading-8 hover:text-slate-900" href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
             </div>
             <div class="author_info flex items-center gap-2  py-2 mt-2 px-8">
               <?php echo get_avatar(get_the_author_meta('ID'), $size = '28', $default = '', $alt = '', $args = array('class' => 'author_photo rounded-full')); ?>
-              <h4 class="author_name text-slate-500 hover:text-slate-900 mr-3 text-xs font-bold">
+              <h4
+                class="author_name text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-400 mr-3 text-xs font-bold">
                 <?php the_author_posts_link(); ?>
               </h4>
-              <h5 class="post_date text-slate-500 text-xs"><?php the_date('M d, Y'); ?></h5>
+              <h5 class="post_date text-slate-500 dark:text-slate-300 text-xs"><?php the_date('M d, Y'); ?></h5>
               <div>
                 <ul class="post-categories ml-2 flex gap-2 justify-center">
                   <?php
@@ -480,7 +481,7 @@ get_header('part'); ?>
                     foreach ($categories as $index => $category) {
                       $category_link = get_category_link($category->term_id);
                       echo '<li class="category-item category-' . esc_attr($index) . '">
-                                        <a class="text-sm bg-slate-200 p-1 rounded text-slate-700 hover:text-slate-900" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>
+                                        <a class="text-sm bg-slate-200 dark:bg-slate-700 p-1 rounded text-slate-700 dark:text-slate-300 hover:text-slate-900" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>
                                       </li>';
                     }
                   }
@@ -489,7 +490,7 @@ get_header('part'); ?>
               </div>
             </div>
             <div class="blog_content py-3 px-8">
-              <h4 class="text-sm font-normal leading-8 text-slate-500 hover:text-slate-950 mb-2">
+              <h4 class="text-sm font-normal leading-8 text-slate-500 dark:text-slate-300 hover:text-slate-950 mb-2">
                 <?php the_excerpt(); ?>
               </h4>
             </div>
