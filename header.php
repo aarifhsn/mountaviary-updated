@@ -13,6 +13,14 @@
     wp_body_open();
   } ?>
 
+  <!-- Dark Mode  -->
+  <div class="fixed top-2 right-4">
+    <button id="dark-mode-toggle" class="text-xl">
+      <span id="dark-mode-icon">🌞</span>
+    </button>
+  </div>
+
+
   <header class="bg-white relative md:fixed top-0 left-0 min-h-[60px] z-[9999] w-full shadow-sm">
     <div class="header_container flex justify-between items-center py-2 px-8">
       <div class="site_title flex font-poppins items-center">
@@ -71,6 +79,10 @@
         </div>
       </div>
     </div><!--end header_container-->
+
+
+
+
   </header>
 
   <div class="mount_body">

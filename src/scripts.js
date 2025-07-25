@@ -57,4 +57,27 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Dark Mode toggle
+  const toggle = document.getElementById("dark-mode-toggle");
+  const icon = document.getElementById("dark-mode-icon");
+  const html = document.documentElement;
+
+  // Load previously saved theme
+  if (localStorage.getItem("theme") === "dark") {
+    html.classList.add("dark");
+    icon.textContent = "🌙";
+  }
+
+  toggle.addEventListener("click", () => {
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      icon.textContent = "🌞";
+    } else {
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      icon.textContent = "🌙";
+    }
+  });
 });
