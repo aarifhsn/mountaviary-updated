@@ -756,12 +756,6 @@ section#about::after {
   width: 100%;
 }
 
-.services_page .single_serve {
-  background: #fdfdfd;
-  padding: 10px 20px;
-  border-radius: 2px;
-}
-
 /*
 ** RESPONSIVE CSS
 */
@@ -778,5 +772,4 @@ section#about::after {
   .blog_info_area .blog-post {
     width: calc(50% - 40px); /* 2 columns */
   }
-
 }

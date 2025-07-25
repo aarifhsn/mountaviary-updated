@@ -371,35 +371,37 @@ get_header('part'); ?>
 
       <!-- Section Header -->
       <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold mb-4 text-gray-800 uppercase">
+        <h2 class="text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 uppercase">
           <?php echo esc_html(get_theme_mod('mountaviary_service_title_text', 'SERVICES')); ?>
         </h2>
 
         <div class="service_content mt-4">
-          <h5 class="text-sm leading-8 text-slate-500 font-semibold">
+          <h5 class="text-sm leading-8 text-slate-500 dark:text-slate-400 font-semibold">
             <?php echo esc_html(get_theme_mod('mountaviary_services_subtitle', 'What I can Support')); ?>
           </h5>
         </div>
       </div>
 
 
-      <div class="services_page grid grid-cols-1 gap-6">
+      <div class="services_page grid grid-cols-1 py-4">
         <?php while ($services_query->have_posts()):
           $services_query->the_post(); ?>
-          <div class="single_serve bg-white p-6 rounded-2xl transition border-b border-slate-200">
+          <div
+            class="single_serve bg-white dark:bg-slate-800 p-6 rounded-xl transition border-b border-slate-200 dark:border-slate-700">
             <!-- IF ADDED SERVICE AREA ICON -->
 
-            <h3 class="services_title text-xl font-medium text-slate-600 hover:text-slate-900 flex items-center">
+            <h3
+              class="services_title text-xl font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 flex items-center">
               <?php $services_icon = get_post_meta($post->ID, 'service-icon', true);
               if (!empty($services_icon)) { ?>
                 <span
-                  class="service_icon text-gray-500 bg-transparent flex justify-center items-center left-0 relative text-center w-2 h-2 mr-4 rounded-full group-hover:bg-slate-300 transition-all">
+                  class="service_icon text-gray-500 dark:text-gray-400 bg-transparent flex justify-center items-center left-0 relative text-center w-2 h-2 mr-4 rounded-full group-hover:bg-slate-300  dark:group-hover:bg-slate-600 transition-all">
                   <span class="dashicons <?php echo $services_icon; ?>"></span>
                 </span>
               <?php } ?>
               <a class="capitalize pb-1 font-semibold" href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a>
             </h3>
-            <p class="services_content text-sm text-slate-500 font-normal leading-8">
+            <p class="services_content text-sm text-slate-500 dark:text-slate-400 font-normal leading-8">
               <?php echo wp_trim_words(get_the_content(), 10, '...'); ?>
             </p>
           </div>
@@ -407,15 +409,15 @@ get_header('part'); ?>
 
       </div>
       <div
-        class="bg-gradient-to-br from-blue-50 to-white p-12 text-center rounded-xl mt-10 border border-slate-200 inline-block center font-poppins mx-auto w-full">
-        <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+        class="bg-gradient-to-br from-blue-50 to-white dark:from-slate-900 dark:to-slate-800 p-12 text-center rounded-xl mt-10 border border-slate-200 dark:border-slate-700 inline-block center font-poppins mx-auto w-full">
+        <h2 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
           Need something custom?
         </h2>
-        <p class="text-gray-400 text-base md:text-md mb-6">
+        <p class="text-gray-400 dark:text-gray-300 text-base md:text-md mb-6">
           Let’s connect and build something amazing together!
         </p>
         <a href="#contact"
-          class="inline-block bg-white text-gray-600  font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-300 transition duration-300">
+          class="inline-block bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-200  font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-300 dark:hover:bg-slate-700 transition duration-300">
           💬 Let's Talk
         </a>
       </div>
@@ -481,7 +483,7 @@ get_header('part'); ?>
                     foreach ($categories as $index => $category) {
                       $category_link = get_category_link($category->term_id);
                       echo '<li class="category-item category-' . esc_attr($index) . '">
-                                        <a class="text-sm bg-slate-200 dark:bg-slate-700 p-1 rounded text-slate-700 dark:text-slate-300 hover:text-slate-900" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>
+                                        <a class="text-sm bg-slate-200 dark:bg-slate-900 py-1 px-2 rounded text-slate-700 dark:text-slate-300 hover:text-slate-900" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>
                                       </li>';
                     }
                   }
