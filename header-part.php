@@ -96,7 +96,7 @@
                       'theme_location' => 'custom_menu',
                       'container' => '',
                       'menu_class' => '',
-                      'add_li_class' => '',
+                      'add_li_class' => 'hover:text-slate-500 dark:hover:text-slate-400',
                       'nav_anchor_class' => ''
                     )); ?>
                   </div>
