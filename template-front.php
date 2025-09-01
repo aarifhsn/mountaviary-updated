@@ -82,11 +82,11 @@ get_header('part'); ?>
               $url = get_theme_mod("{$platform}_url");
               if ($platform !== 'email') {
                 if ($url) {
-                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 dark:border-slate-600 hover:border-slate-400 dark:hover:bg-slate-800 border-solid' href='" . esc_url($url) . "' target='_blank'><i class='$icon_class'></i></a></li>";
+                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-100 border-solid' href='" . esc_url($url) . "' target='_blank'><i class='$icon_class'></i></a></li>";
                 }
               } else {
                 if ($url) {
-                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border dark:hover:bg-slate-800 border-slate-200 dark:hover:border-slate-800 border-solid' href='mailto:" . esc_attr($url) . "'' target='_blank'><i class='$icon_class'></i></a></li>";
+                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-100 border-solid' href='mailto:" . esc_attr($url) . "'' target='_blank'><i class='$icon_class'></i></a></li>";
                 }
               }
             }
@@ -102,36 +102,29 @@ get_header('part'); ?>
 
 <!--AUTHOR SECTION-->
 <section id="about"
-  class="min-h-screen relative overflow-hidden bg-slate-200 dark:bg-slate-700 flex justify-center items-center py-24 mb-16">
+  class="min-h-screen relative overflow-hidden bg-slate-200 dark:bg-slate-700 flex justify-center items-center py-12 lg:py-24 mb-16">
 
-  <!-- Background Image with Blur -->
-  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style="background-image: url('./img/code_bg_white.jpg')"></div>
-  <div
-    class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 dark:opacity-100 transition-opacity duration-500"
-    style="background-image: url('./img/code_bg.png')"></div>
-
-  <!-- Enhanced Blur and Overlay Effect -->
-  <div class="absolute inset-0 backdrop-blur-md bg-white/20 dark:bg-black/40 transition-all duration-500"></div>
-  <div
-    class="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-slate-200/20 dark:from-slate-900/50 dark:via-transparent dark:to-slate-800/30">
+  <!-- Background Image with Overlay -->
+  <div class="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover"
+    style="background-image: url('<?php echo esc_url(get_theme_mod('mountaviary_about_image', get_template_directory_uri() . '/img/code-bg.png')); ?>');">
+    <!-- Overlay for theme adaptation -->
+    <div class="absolute inset-0 bg-white/90 dark:bg-black/90 z-10"></div>
   </div>
-
 
   <!-- Main Content -->
   <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
     <!-- Tech Stack Tags -->
     <div class="flex flex-wrap justify-center gap-3 mb-8">
       <span
-        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-500/30 transition-all duration-300">
+        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-700/70 transition-all duration-300">
         PHP
       </span>
       <span
-        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-700/70 dark: transition-all duration-300">
+        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-700/70 transition-all duration-300">
         LARAVEL
       </span>
       <span
-        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-500/30 transition-all duration-300">
+        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-700/70 transition-all duration-300">
         WORDPRESS
       </span>
     </div>
@@ -141,13 +134,13 @@ get_header('part'); ?>
     </h1>
     <!-- Quote -->
     <p
-      class="text-slate-600 dark:text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed tracking-wide font-medium">
+      class="text-slate-600 dark:text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed tracking-wide font-medium">
       "CODE YOUR DREAMS INTO REALITY, TURN ERRORS INTO OPPORTUNITIES."
     </p>
     <!-- CTA Button -->
     <div class="relative inline-block group">
       <button
-        class="relative px-8 py-4 text-lg font-semibold text-white dark:text-slate-200 bg-slate-700  border-2 border-slate-300 dark:border-slate-700 rounded-lg overflow-hidden transition-all duration-300 hover:text-white group-hover:scale-105 focus:outline-none focus:ring-2 focus:ring-slate-500/50">
+        class="relative px-8 py-4 text-lg font-semibold text-white dark:text-slate-200 bg-slate-700 border-2 border-slate-300 dark:border-slate-700 rounded-lg overflow-hidden transition-all duration-300 hover:text-white group-hover:scale-105 focus:outline-none focus:ring-2 focus:ring-slate-500/50">
         <span class="relative z-10">VIEW RESUME</span>
         <div
           class="absolute inset-0 bg-slate-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
@@ -155,7 +148,6 @@ get_header('part'); ?>
       </button>
     </div>
   </div>
-
 </section>
 <!--END AUTHOR SECTION-->
 
@@ -333,28 +325,29 @@ get_header('part'); ?>
                 ?>
               </div>
 
-              <!-- Tech Stack -->
-              <div class="flex flex-wrap justify-between my-8">
-                <div class="">
-                  <div class="flex items-center mb-3">
-                    <span class="text-sm font-semibold text-gray-800 dark:text-slate-100 uppercase tracking-wide">⚡ Tech
-                      Stack</span>
-                  </div>
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    <?php
+              <?php
+              $tags = get_the_terms($post->ID, 'portfolio_tech_stack');
+              if (!empty($tags) && !is_wp_error($tags)) { ?>
+                <!-- Tech Stack -->
+                <div class="flex flex-wrap justify-between my-8">
+                  <div class="">
+                    <div class="flex items-center mb-3">
+                      <span class="text-sm font-semibold text-gray-800 dark:text-slate-100 uppercase tracking-wide">⚡ Tech
+                        Stack</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                      <?php
 
-                    $tags = get_the_terms($post->ID, 'portfolio_tech_stack');
-                    if ($tags && !is_wp_error($tags)) {
-                      foreach ($tags as $tag) {
-                        echo '<span  class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-800 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-slate-100 dark:hover:text-slate-300 transition-all duration-300 transform">' . esc_html($tag->name) . '</span>';
+                      if ($tags && !is_wp_error($tags)) {
+                        foreach ($tags as $tag) {
+                          echo '<span  class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-800 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-slate-100 dark:hover:text-slate-300 transition-all duration-300 transform">' . esc_html($tag->name) . '</span>';
+                        }
                       }
-                    }
-                    ?>
-
-
+                      ?>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php } ?>
 
               <!-- Key Features -->
               <div class="mb-6">
@@ -427,11 +420,11 @@ get_header('part'); ?>
           <div
             class="single_serve bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-slate-700">
 
-            <div class="flex items-start gap-4 mb-4">
+            <div class="block md:flex items-start gap-4 mb-4">
               <?php $services_icon = get_post_meta($post->ID, 'service-icon', true);
               if (!empty($services_icon)) { ?>
                 <div
-                  class="service_icon flex-shrink-0 w-12 h-12 bg-slate-600 dark:bg-slate-200 rounded-full flex items-center justify-center text-white dark:text-black text-lg">
+                  class="service_icon flex-shrink-0 w-12 h-12 bg-slate-600 dark:bg-slate-200 rounded-full flex items-center justify-center text-white dark:text-black text-lg mb-2">
                   <span class="dashicons <?php echo $services_icon; ?>"></span>
                 </div>
               <?php } ?>
@@ -512,7 +505,7 @@ get_header('part'); ?>
               <?php
               the_title('<h2 class="entry-title"><a class="font-semibold text-slate-700 dark:text-slate-100 leading-8 hover:text-slate-900" href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
             </div>
-            <div class="author_info flex items-center gap-2  py-2 mt-2 px-8">
+            <div class="author_info block md:flex items-center gap-x-2 gap-y-4 py-2 mt-2 px-8">
               <?php echo get_avatar(get_the_author_meta('ID'), $size = '28', $default = '', $alt = '', $args = array('class' => 'author_photo rounded-full')); ?>
               <h4
                 class="author_name text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-400 mr-3 text-xs font-bold">
@@ -520,7 +513,7 @@ get_header('part'); ?>
               </h4>
               <h5 class="post_date text-slate-500 dark:text-slate-300 text-xs"><?php the_date('M d, Y'); ?></h5>
               <div>
-                <ul class="post-categories ml-2 flex gap-2 justify-center">
+                <ul class="post-categories block md:flex gap-2">
                   <?php
                   $categories = get_the_category();
                   if (!empty($categories)) {

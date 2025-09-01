@@ -87,7 +87,7 @@
 
   <div class="mount_body bg-slate-50 dark:bg-gray-800">
     <div class="container px-3 md:px-4 xl:p-0 mx-auto relative">
-      <div class="site_content w-full lg:w-3/5 m-auto relative">
+      <div class="site_content w-full lg:w-4/5 m-auto relative">
         <?php if (get_option('show_sidebar_area', 1)) { ?>
           <div
             class="left_nav_content hidden lg:block 2xl:block flex-auto h-full z-50 top-0 left-0 bottom-0 fixed border-r-2 w-3/12 bg-left_nav-bg  bg-cover bg-no-repeat bg-center bg-white dark:bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-sm">
