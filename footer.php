@@ -5,7 +5,7 @@
  * Contains footer content and the closing of the #body_content and #page div elements.
  *
  * @package Mountaviary
- 
+
  * @since Mountaviary 1.0.0
  */
 ?>
@@ -17,14 +17,16 @@
 <!-- end container-->
 </div>
 <!--end mount body-->
-<footer class="bg-white p-4 md:px-6 md:py-8 border border-slate-300 border-solid relative z-50 font-poppins">
+<footer
+  class="bg-white dark:bg-slate-900 p-4 md:px-6 md:py-8 border border-slate-300 dark:border-slate-700 border-solid relative z-50 font-poppins">
   <div
-    class="flex flex-col md:flex-row justify-center md:justify-between gap-6 items-center border-b border-b-slate-300 pb-4 md:pb-7">
+    class="flex flex-col md:flex-row justify-center md:justify-between gap-6 items-center border-b border-b-slate-300 dark:border-b-slate-700 pb-4 md:pb-7">
     <div class="footer_site_title">
-      <a href="<?php echo esc_url(home_url('/')); ?>" class="font-bold"
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="font-bold dark:text-slate-100"
         rel="home"><?php echo get_bloginfo('name'); ?></a>
     </div>
-    <div class="footer_menu uppercase font-semibold text-xs md:text-sm text-slate-500 overflow-hidden">
+    <div
+      class="footer_menu uppercase font-semibold text-xs md:text-sm text-slate-500 dark:text-slate-100 overflow-hidden">
       <!-- FOOTER MENU -->
       <?php wp_nav_menu(array(
         'theme_location' => 'footer_menu',

@@ -7,8 +7,8 @@ get_header('part'); ?>
 
 <?php if (get_option('front_page_user_info', 1)) { ?>
   <section id="home"
-    class="devs_top_info min-h-[480px] md:min-h-screen flex justify-center items-center text-start px-4 lg:px-16 xl:px-36 pt-24 md:py-0 mb-12 md:my-2 bg-contain bg-center bg-no-repeat relative">
-    <div class="devs_top_content">
+    class="devs_top_info min-h-[480px] md:min-h-screen flex justify-center items-center text-start px-4 lg:px-16 xl:px-32 2xl:px-12 pt-24 md:py-0 mb-12 md:my-2 bg-contain bg-center bg-no-repeat relative">
+    <div class="devs_top_content w-4/5 md:w-5/6 lg:w-full">
       <h2 class="relative text-3xl md:text-5xl 2xl:text-8xl text-slate-700 dark:text-slate-300 font-extrabold capitalize">
         <span
           class="font-extrabold text-slate-200 dark:text-slate-800 absolute -mt-4 md:-mt-6 2xl:-mt-14 -left-2"><?php echo esc_html(get_theme_mod('mountaviary_front_span_text')); ?></span>
@@ -29,20 +29,17 @@ get_header('part'); ?>
       </p>
 
       <!-- Tech Stack -->
-      <div class="flex flex-row  my-8">
-        <div class="flex items-center mr-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 my-8">
+        <div class="flex-shrink-0">
           <span class="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide">⚡ Tech Stack</span>
         </div>
         <div class="flex flex-wrap gap-2">
-          <span class="">
-            <?php $tech_stack = ['PHP', 'LARAVEL', 'WordPress', 'VueJS', 'AlpineJS', 'Livewire', 'FilamentPHP', 'TailwindCSS'];
+          <?php $tech_stack = ['PHP', 'LARAVEL', 'WordPress', 'VueJS', 'AlpineJS', 'Livewire', 'FilamentPHP', 'TailwindCSS'];
 
-            foreach ($tech_stack as $stack) {
-              echo '<span class="px-3 py-2 bg-gradient-to-r from-gray-50 to-gray-200 border border-gray-100 dark:border-gray-700 rounded-lg dark:bg-transparent dark:from-transparent dark:to-transparent dark:text-slate-200 text-sm font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-200  transition-all duration-300 transform mr-1">' . $stack . '</span>';
-            }
-
-            ?>
-          </span>
+          foreach ($tech_stack as $stack) {
+            echo '<span class="px-3 py-2 bg-gray-100 border border-gray-100 dark:border-gray-700 rounded-lg dark:bg-transparent dark:text-slate-200 text-sm font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-200 dark:hover:from-gray-800 dark:hover:to-gray-700 transition-all duration-300 whitespace-nowrap">' . $stack . '</span>';
+          }
+          ?>
         </div>
       </div>
 
@@ -89,7 +86,7 @@ get_header('part'); ?>
                 }
               } else {
                 if ($url) {
-                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border dark:hover:bg-slate-800 border-slate-200 hover:border-slate-400 border-solid' href='mailto:" . esc_attr($url) . "'' target='_blank'><i class='$icon_class'></i></a></li>";
+                  echo "<li><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border dark:hover:bg-slate-800 border-slate-200 dark:hover:border-slate-800 border-solid' href='mailto:" . esc_attr($url) . "'' target='_blank'><i class='$icon_class'></i></a></li>";
                 }
               }
             }
@@ -105,17 +102,58 @@ get_header('part'); ?>
 
 <!--AUTHOR SECTION-->
 <section id="about"
-  class="devs_about bg-bg-author min-h-[480px] md:min-h-screen my-20 md:my-2 lg:mb-24 transition-all py-24 relative bg-cover bg-fixed bg-no-repeat bg-center z-10 flex  justify-center items-center  font-montserrat">
-  <div class="author_meta flex flex-col gap-4 z-50 relative justify-center text-center font-montserrat">
-    <p class="uppercase text-white text-sm sm:text-lg tracking-widest">LARAVEL | WORDPRESS | PHP</p>
-    <h3 class="capitalize text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-red-600 py-2 font-bold">Web Developer</h3>
-    <h5 class="uppercase text-slate-400 font-medium text-[10px] lg:text-sm tracking-wide leading-6 ">"Code your dreams
-      into reality, Turn errors into opportunities."</h5>
+  class="min-h-screen relative overflow-hidden bg-slate-200 dark:bg-slate-700 flex justify-center items-center py-24 mb-16">
 
-    <h5 class="text-xs font-semibold text-red-500 mt-12 uppercase"><a
-        class="text-red-500 p-4 inline-block border border-slate-200  hover:border-slate-400 hover:text-white transition-all"
-        href="<?php echo esc_url(get_theme_mod('mountaviary_about_resume_link')); ?>" target="_blank">View
-        Resume</a></h5>
+  <!-- Background Image with Blur -->
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('./img/code_bg_white.jpg')"></div>
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 dark:opacity-100 transition-opacity duration-500"
+    style="background-image: url('./img/code_bg.png')"></div>
+
+  <!-- Enhanced Blur and Overlay Effect -->
+  <div class="absolute inset-0 backdrop-blur-md bg-white/20 dark:bg-black/40 transition-all duration-500"></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-slate-200/20 dark:from-slate-900/50 dark:via-transparent dark:to-slate-800/30">
+  </div>
+
+
+  <!-- Main Content -->
+  <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+    <!-- Tech Stack Tags -->
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <span
+        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-500/30 transition-all duration-300">
+        PHP
+      </span>
+      <span
+        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-700/70 dark: transition-all duration-300">
+        LARAVEL
+      </span>
+      <span
+        class="dark:bg-slate-900/20 bg-slate-700/80 text-slate-100 dark:text-slate-200 px-4 py-2 rounded-full text-sm font-medium tracking-wide border border-red-500/30 hover:bg-slate-500/30 transition-all duration-300">
+        WORDPRESS
+      </span>
+    </div>
+    <!-- Main Heading -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold py-4 text-slate-800 dark:text-slate-100">
+      Web Developer
+    </h1>
+    <!-- Quote -->
+    <p
+      class="text-slate-600 dark:text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed tracking-wide font-medium">
+      "CODE YOUR DREAMS INTO REALITY, TURN ERRORS INTO OPPORTUNITIES."
+    </p>
+    <!-- CTA Button -->
+    <div class="relative inline-block group">
+      <button
+        class="relative px-8 py-4 text-lg font-semibold text-white dark:text-slate-200 bg-slate-700  border-2 border-slate-300 dark:border-slate-700 rounded-lg overflow-hidden transition-all duration-300 hover:text-white group-hover:scale-105 focus:outline-none focus:ring-2 focus:ring-slate-500/50">
+        <span class="relative z-10">VIEW RESUME</span>
+        <div
+          class="absolute inset-0 bg-slate-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out">
+        </div>
+      </button>
+    </div>
   </div>
 
 </section>
@@ -214,7 +252,7 @@ get_header('part'); ?>
   if ($portfolio_query->have_posts()):
     ?>
 
-    <section id="portfolio" class="relative portfolio_area min-h-screen py-20 px-4 bg-gray-200 dark:bg-gray-900">
+    <section id="portfolio" class="relative portfolio_area min-h-screen py-12 px-4 bg-gray-200 dark:bg-gray-900">
 
       <!-- Section Header -->
       <div class="text-center mb-16">
@@ -226,10 +264,10 @@ get_header('part'); ?>
       <div class="portfolio_page">
         <?php while ($portfolio_query->have_posts()):
           $portfolio_query->the_post(); ?>
-          <div class="single_port bg-white dark:bg-slate-800 flex items-center gap-6 py-12 pr-4 rounded-xl my-12 relative group <?php foreach (get_the_terms(get_the_ID(), 'portfolio_category') as $cat)
-            echo $cat->slug . ' '; ?>">
+          <div class="single_port bg-white dark:bg-slate-800 flex-row lg:flex items-center gap-6 py-12 pr-0 lg:pr-4 rounded-xl my-12 relative group <?php foreach (get_the_terms(get_the_ID(), 'portfolio_tech_stack') as $tag)
+            echo $tag->slug . ' '; ?>">
 
-            <div class="relative w-1/2">
+            <div class="relative w-full lg:w-1/2">
               <div class="h-96 relative overflow-hidden">
                 <?php if (has_post_thumbnail()) { ?>
                   <?php
@@ -251,7 +289,7 @@ get_header('part'); ?>
                   // Check if the meta box value exists
                   $portfolio_link = get_post_meta($post->ID, 'project-link', true);
                   if (!empty($portfolio_link)) { ?>
-                    <a class="port_title relative block mb-8 hover:text-slate-800 text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide border border-gray-200 dark:border-gray-500 px-4 py-2 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 transition duration-300 rounded-full"
+                    <a class="port_title relative block mb-8 hover:text-slate-800 text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide border border-gray-200 dark:border-gray-500 px-4 py-2 bg-gray-100 dark:bg-slate-700 hover:border-gray-300 transition duration-300 rounded-full"
                       href="<?php echo esc_url($portfolio_link); ?>" target="_blank">View Project</a>
                   <?php }
                   ?>
@@ -260,12 +298,24 @@ get_header('part'); ?>
 
             </div>
 
-            <div class="w-1/2 port_cat text-sm min-h-60">
-              <!-- project category   -->
-              <h3
-                class="border-gray-300 bg-gray-200 dark:bg-slate-700 rounded-xl px-4 py-2 mb-4 text-sm font-semibold text-gray-800 dark:text-slate-200 tracking-wide">
-                Web
-                Application</h3>
+            <div class="w-full lg:w-1/2 port_cat text-sm min-h-60 px-4">
+
+              <!-- Project Category -->
+              <?php
+              $categories = get_the_terms(get_the_ID(), 'portfolio_category');
+              if ($categories && !is_wp_error($categories)) {
+                $category = $categories[0]; // Get first category
+                ?>
+                <h3
+                  class="border-gray-300 bg-gray-200 dark:bg-slate-700 rounded-lg px-4 py-2 my-4 text-sm font-semibold text-gray-800 dark:text-slate-200 tracking-wide">
+                  <?php echo esc_html($category->name); ?>
+                </h3>
+              <?php } else { ?>
+                <h3
+                  class="border-gray-300 bg-gray-200 dark:bg-slate-700 rounded-xl px-4 py-2 mb-4 text-sm font-semibold text-gray-800 dark:text-slate-200 tracking-wide">
+                  Web Application
+                </h3>
+              <?php } ?>
 
               <!-- Project Title -->
               <h3 class="text-3xl font-bold text-gray-700 dark:text-slate-50 mb-4 leading-tight">
@@ -275,11 +325,10 @@ get_header('part'); ?>
               <!-- Project Description -->
               <div class="text-gray-600 dark:text-slate-400 text-md leading-relaxed mb-6">
                 <?php
-                $content = get_the_content();
-                if (empty($content)) {
-                  echo "A comprehensive project showcasing modern web development techniques, advanced functionality, and seamless user experience design.";
-                } else {
-                  echo wp_trim_words($content, 30, '...');
+                $project_description = get_post_meta($post->ID, 'project_description', true);
+
+                if (!empty($project_description)) {
+                  echo $project_description;
                 }
                 ?>
               </div>
@@ -293,27 +342,16 @@ get_header('part'); ?>
                   </div>
                   <div class="flex flex-wrap gap-2 mt-3">
                     <?php
-                    $categories = get_the_terms($post->ID, 'portfolio_category');
-                    if ($categories && !is_wp_error($categories)) {
-                      foreach ($categories as $category) {
-                        echo '<span class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-800 border border-gray-200 dark:border-gray-400 rounded-2xl text-sm font-medium text-gray-700 dark:text-slate-100 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 hover:text-white transition-all duration-300 transform hover:-translate-y-1">' . $category->name . '</span>';
+
+                    $tags = get_the_terms($post->ID, 'portfolio_tech_stack');
+                    if ($tags && !is_wp_error($tags)) {
+                      foreach ($tags as $tag) {
+                        echo '<span  class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 dark:from-slate-700 dark:to-slate-800 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-slate-100 dark:hover:text-slate-300 transition-all duration-300 transform">' . esc_html($tag->name) . '</span>';
                       }
                     }
                     ?>
-                  </div>
-                </div>
 
-                <div> <!-- Case Study Button -->
-                  <button type="button"
-                    class="case-study-button text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide px-6 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl hover:border-indigo-500 hover:text-indigo-500 transition-all duration-300">
-                    Case Study
-                  </button>
 
-                  <div class="case-study-content hidden mt-4">
-                    <div class="case_study_content">
-                      <h3 class="text-2xl font-bold text-gray-800 mb-4 leading-tight">Case Study</h3>
-                      <p>Description</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -321,7 +359,7 @@ get_header('part'); ?>
               <!-- Key Features -->
               <div class="mb-6">
                 <div class="flex items-center mb-3">
-                  <span class="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide">🚀 Key
+                  <span class="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide">Key
                     Features</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -371,7 +409,7 @@ get_header('part'); ?>
 
       <!-- Section Header -->
       <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 uppercase">
+        <h2 class="text-5xl font-bold mb-4 text-slate-800  dark:text-slate-200 uppercase">
           <?php echo esc_html(get_theme_mod('mountaviary_service_title_text', 'SERVICES')); ?>
         </h2>
 
@@ -383,33 +421,39 @@ get_header('part'); ?>
       </div>
 
 
-      <div class="services_page grid grid-cols-1 py-4">
+      <div class="services_page grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php while ($services_query->have_posts()):
           $services_query->the_post(); ?>
           <div
-            class="single_serve bg-white dark:bg-slate-800 p-6 rounded-xl transition border-b border-slate-200 dark:border-slate-700">
-            <!-- IF ADDED SERVICE AREA ICON -->
+            class="single_serve bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-slate-700">
 
-            <h3
-              class="services_title text-xl font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 flex items-center">
+            <div class="flex items-start gap-4 mb-4">
               <?php $services_icon = get_post_meta($post->ID, 'service-icon', true);
               if (!empty($services_icon)) { ?>
-                <span
-                  class="service_icon text-gray-500 dark:text-gray-400 bg-transparent flex justify-center items-center left-0 relative text-center w-2 h-2 mr-4 rounded-full group-hover:bg-slate-300  dark:group-hover:bg-slate-600 transition-all">
+                <div
+                  class="service_icon flex-shrink-0 w-12 h-12 bg-slate-600 dark:bg-slate-200 rounded-full flex items-center justify-center text-white dark:text-black text-lg">
                   <span class="dashicons <?php echo $services_icon; ?>"></span>
-                </span>
+                </div>
               <?php } ?>
-              <a class="capitalize pb-1 font-semibold" href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a>
-            </h3>
-            <p class="services_content text-sm text-slate-500 dark:text-slate-400 font-normal leading-8">
-              <?php echo wp_trim_words(get_the_content(), 10, '...'); ?>
+
+              <div class="flex-1">
+                <h3
+                  class="services_title text-xl font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200 mb-3 leading-7">
+                  <a class="capitalize hover:text-red-500 transition-colors duration-200" href="<?php the_permalink(); ?>">
+                    <?php echo the_title(); ?>
+                  </a>
+                </h3>
+              </div>
+            </div>
+
+            <p class="services_content text-sm leading-7 text-slate-500 dark:text-slate-400 font-normal">
+              <?php echo wp_trim_words(get_the_content(), 15, '...'); ?>
             </p>
           </div>
         <?php endwhile; ?>
-
       </div>
       <div
-        class="bg-gradient-to-br from-blue-50 to-white dark:from-slate-900 dark:to-slate-800 p-12 text-center rounded-xl mt-10 border border-slate-200 dark:border-slate-700 inline-block center font-poppins mx-auto w-full">
+        class="bg-gradient-to-br from-blue-50 to-white dark:from-slate-900 dark:to-slate-800 p-12 text-center rounded-xl mt-10 border border-slate-200 dark:border-slate-900 inline-block center font-poppins mx-auto w-full">
         <h2 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
           Need something custom?
         </h2>
@@ -515,7 +559,7 @@ get_header('part'); ?>
 
     <!-- Section Header -->
     <div class="contact_area_title text-center mb-16">
-      <h2 class="text-5xl font-bold mb-4 text-gray-800 uppercase">
+      <h2 class="text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 uppercase">
         <?php echo esc_html(get_theme_mod('mountaviary_front_contact_page_title', 'Find Me Here')); ?>
       </h2>
     </div>

@@ -122,7 +122,7 @@ img {
   position: relative;
 }
 .mount_frontpage_left_menu ul li a:hover {
-  color: #020617;
+  color: #8c92a4;
 }
 .left_nav ul li ul {
   display: block;
@@ -156,7 +156,6 @@ img {
 }
 .mount_top_menu ul li a {
   font-weight: 500;
-  color: #1e293b;
 }
 .mount_top_menu ul li a:hover {
   color: #020617;
@@ -325,12 +324,11 @@ section#about spanY.aboutID {
 
 #comments .comment-body p {
   font-size: 14px;
-  background: #eee;
   padding: 21px 10px;
   margin: 10px 0;
   position: relative;
+  @apply border rounded-md p-2 bg-white dark:bg-gray-800 dark:text-white;
 }
-
 #comments .comment-body p::before {
   content: "";
   position: absolute;
@@ -751,7 +749,7 @@ section#about::after {
   content: "";
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  /* background-color: rgba(0, 0, 0, 0.7); */
   height: 100%;
   width: 100%;
 }

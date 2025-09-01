@@ -14,9 +14,9 @@
   } ?>
 
   <!-- Dark Mode  -->
-  <div class="fixed top-4 right-4 z-50">
-    <button id="dark-mode-toggle" class="text-xl">
-      <span id="dark-mode-icon" class="border border-gray-400 p-2 rounded ">🌞</span>
+  <div class="fixed bottom-12 right-6 z-50">
+    <button id="dark-mode-toggle" class="text-lg">
+      <span id="dark-mode-icon" class="border border-gray-300 dark:border-gray-600 p-1 rounded ">🔆</span>
     </button>
   </div>
 
@@ -26,7 +26,7 @@
 
         <div class="site_context">
           <?php if (display_header_text()): // If user chooses to display header text. ?>
-            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" class="font-bold"
+            <h1 class="site-title dark:text-white"><a href="<?php echo esc_url(home_url('/')); ?>" class="font-bold"
                 rel="home"><?php echo get_bloginfo('name'); ?></a></h1>
 
             <?php
@@ -50,7 +50,7 @@
               'container' => '',
               'menu_class' => '',
               'add_li_class' => '',
-              'nav_anchor_class' => ''
+              'nav_anchor_class' => 'hover:text-slate-500 dark:hover:text-slate-400'
             ));
             ?>
           </div>
@@ -65,7 +65,7 @@
     <div class="container px-3 md:px-4 xl:p-0 mx-auto relative">
       <div class="site_content w-full relative">
         <div
-          class="left_nav_content hidden lg:block 2xl:block flex-auto h-full z-50 top-0 left-0 fixed border-r-2 w-1/5 bg-left_nav-bg  bg-cover bg-no-repeat bg-center bg-white dark:bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-sm pl-16 pr-4">
+          class="left_nav_content hidden lg:block 2xl:block flex-auto h-full z-50 top-0 left-0 fixed border-r-2 w-1/5 bg-left_nav-bg  bg-cover bg-no-repeat bg-center bg-white dark:bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-sm pl-8 pr-2">
           <div class="site_title flex font-poppins pt-16">
             <?php if (function_exists('the_custom_logo') && has_custom_logo()) { ?>
               <div class="logo mr-4">
@@ -87,7 +87,7 @@
           </div>
           <div class="sidebar_area max-h-96 mb-20 mt-12">
             <div id="sidebar1" class="left_nav_info sidebar_toggle">
-              <div class=" pr-4 pt-4 pb-4">
+              <div class=" pr-2 pt-4 pb-4">
                 <div
                   class="left_nav text-left uppercase font-poppins font-bold text-sm text-slate-700 dark:text-slate-100 mt-4 relative">
                   <!-- LEFT NAV MENU -->
@@ -102,41 +102,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- FRONT-PAGE SOCIAL ICONS  -->
-            <div class="front_page_social w-full mt-14">
-              <ul
-                class="social-icons flex flex-wrap gap-x-2 gap-y-6 justify-start text-lg text-slate-600 dark:text-slate-100">
-                <?php
-                $social_platforms = array(
-                  'facebook' => 'fa-brands fa-facebook-f',
-                  'github' => 'fa-brands fa-github',
-                  'instagram' => 'fab fa-instagram',
-                  'linkedin' => 'fa-brands fa-linkedin-in',
-                  'youtube' => 'fa-brands fa-youtube',
-                  'whatsapp' => 'fa-brands fa-whatsapp',
-                  'telegram' => 'fa-brands fa-telegram',
-                  'twitter' => 'fa-brands fa-x-twitter',
-                  'discord' => 'fa-brands fa-discord',
-                  'email' => 'fa-regular fa-envelope',
-                  // Add more social platforms as needed
-                );
-
-                foreach ($social_platforms as $platform => $icon_class) {
-                  $url = get_theme_mod("{$platform}_url");
-                  if ($platform !== 'email') {
-                    if ($url) {
-                      echo "<li class='my-2'><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 dark:border-slate-700 hover:border-slate-400 border-solid' href='" . esc_url($url) . "' target='_blank'><i class='$icon_class w-4 h-4'></i></a></li>";
-                    }
-                  } else {
-                    if ($url) {
-                      echo "<li class='my-2'><a class='px-2 md:px-3 py-1 md:py-1.5 rounded border border-slate-200 hover:border-slate-400 border-solid' href='mailto:" . esc_attr($url) . "'' target='_blank'><i class='$icon_class  w-4 h-4'></i></a></li>";
-                    }
-                  }
-                }
-                ?>
-              </ul>
             </div>
           </div>
           <!-- end left_nav_info -->

@@ -73,11 +73,69 @@ document.addEventListener("DOMContentLoaded", function () {
     if (html.classList.contains("dark")) {
       html.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      icon.textContent = "🌞";
+      icon.textContent = "🔆";
     } else {
       html.classList.add("dark");
       localStorage.setItem("theme", "dark");
       icon.textContent = "🌙";
     }
   });
+
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+  portfolioItems.forEach((item, index) => {
+    // Add random delay for staggered animations
+    item.style.animationDelay = `${index * 0.1}s`;
+
+    // Enhanced hover effects
+    item.addEventListener("mouseenter", function () {
+      this.style.opacity = "1";
+      this.style.filter = "grayscale(0%) brightness(1.1)";
+      this.style.transform = "scale(1.08)";
+      this.style.zIndex = "5";
+    });
+
+    item.addEventListener("mouseleave", function () {
+      this.style.opacity = "0.6";
+      this.style.filter = "grayscale(70%) brightness(0.7)";
+      this.style.transform = "scale(1)";
+      this.style.zIndex = "1";
+    });
+
+    // Add click effect for demo purposes
+    item.addEventListener("click", function () {
+      // You can add portfolio item click functionality here
+      console.log(`Portfolio item ${index + 1} clicked`);
+    });
+  });
+
+  // Add subtle parallax effect on scroll
+  window.addEventListener("scroll", function () {
+    const scrolled = window.pageYOffset;
+    const grid = document.querySelector(".portfolio-grid");
+    if (grid) {
+      grid.style.transform = `translateY(${scrolled * 0.1}px)`;
+    }
+  });
+
+  // Add floating animation to tech stack
+  const techStack = document.querySelector(".floating-animation");
+  if (techStack) {
+    let isFloating = true;
+
+    const startFloating = () => {
+      if (isFloating) {
+        techStack.style.transform = "translateY(-10px)";
+        setTimeout(() => {
+          if (isFloating) {
+            techStack.style.transform = "translateY(0px)";
+            setTimeout(startFloating, 2000);
+          }
+        }, 2000);
+      }
+    };
+
+    techStack.style.transition = "transform 2s ease-in-out";
+    setTimeout(startFloating, 1000);
+  }
 });

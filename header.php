@@ -14,14 +14,14 @@
   } ?>
 
   <!-- Dark Mode  -->
-  <div class="fixed top-2 right-4">
-    <button id="dark-mode-toggle" class="text-xl">
-      <span id="dark-mode-icon">🌞</span>
+  <div class="fixed bottom-12 right-2 z-50">
+    <button id="dark-mode-toggle" class="text-lg">
+      <span id="dark-mode-icon" class="border border-gray-600 p-1 rounded ">🔆</span>
     </button>
   </div>
 
 
-  <header class="bg-white relative md:fixed top-0 left-0 min-h-[60px] z-[9999] w-full shadow-sm">
+  <header class="bg-white dark:bg-gray-900 relative md:fixed top-0 left-0 min-h-[60px] z-40 w-full shadow-sm">
     <div class="header_container flex justify-between items-center py-2 px-8">
       <div class="site_title flex font-poppins items-center">
         <?php if (function_exists('the_custom_logo') && has_custom_logo()) { ?>
@@ -31,13 +31,13 @@
         <?php } ?>
         <div class="site_context">
           <?php if (display_header_text()): // If user chooses to display header text. ?>
-            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" class="font-bold"
+            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" class="font-bold dark:text-white"
                 rel="home"><?php echo get_bloginfo('name'); ?></a></h1>
 
             <?php
             $description = get_bloginfo('description', 'display');
             if ($description || is_customize_preview()): ?>
-              <h4 class="text-xs text-slate-500 italic "><?php echo $description; ?></h4>
+              <h4 class="text-xs text-slate-500 dark:text-slate-400 italic "><?php echo $description; ?></h4>
             <?php endif; ?>
           <?php endif; ?>
         </div>
@@ -45,7 +45,7 @@
       <div class="top_menu z-[15]">
         <div class="navbar  text-sm relative">
           <div class="screen_menu">
-            <div class="left_nav uppercase font-bold font-poppins py-4 relative lg:block hidden">
+            <div class="left_nav uppercase dark:text-slate-100 font-bold font-poppins py-4 relative lg:block hidden">
               <!-- SCREEN MENU -->
               <div class="mount_top_menu">
                 <?php wp_nav_menu(array(
@@ -85,12 +85,12 @@
 
   </header>
 
-  <div class="mount_body">
+  <div class="mount_body bg-slate-50 dark:bg-gray-800">
     <div class="container px-3 md:px-4 xl:p-0 mx-auto relative">
       <div class="site_content w-full lg:w-3/5 m-auto relative">
         <?php if (get_option('show_sidebar_area', 1)) { ?>
           <div
-            class="left_nav_content hidden lg:block 2xl:block flex-auto h-full z-50 top-0 left-0 bottom-0 fixed border-r-2 w-3/12 bg-left_nav-bg  bg-cover bg-no-repeat bg-center bg-white bg-opacity-80 backdrop-filter backdrop-blur-sm">
+            class="left_nav_content hidden lg:block 2xl:block flex-auto h-full z-50 top-0 left-0 bottom-0 fixed border-r-2 w-3/12 bg-left_nav-bg  bg-cover bg-no-repeat bg-center bg-white dark:bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-sm">
 
             <div class="sidebar_section_front mb-16 pl-8 pr-0 mt-20">
 

@@ -12,7 +12,7 @@
  * If the current post is protected by a password and
  * the visitor has not yet entered the password we will return early without loading the comments.
  */
-if ( post_password_required() ) {
+if (post_password_required()) {
 	return;
 }
 ?>
@@ -21,23 +21,23 @@ if ( post_password_required() ) {
 
 	<?php
 	// You can start editing here -- including this comment!
-	if ( have_comments() ) :
+	if (have_comments()):
 		?>
 		<h2 class="comments-title">
 			<?php
 			$mountaviary_comment_count = get_comments_number();
-			if ( '1' === $mountaviary_comment_count ) {
+			if ('1' === $mountaviary_comment_count) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'mountaviary' ),
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+					esc_html__('One thought on &ldquo;%1$s&rdquo;', 'mountaviary'),
+					'<span>' . wp_kses_post(get_the_title()) . '</span>'
 				);
 			} else {
-				printf( 
+				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $mountaviary_comment_count, 'comments title', 'mountaviary' ) ),
-					number_format_i18n( $mountaviary_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+					esc_html(_nx('%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $mountaviary_comment_count, 'comments title', 'mountaviary')),
+					number_format_i18n($mountaviary_comment_count), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'<span>' . wp_kses_post(get_the_title()) . '</span>'
 				);
 			}
 			?>
@@ -45,12 +45,13 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<ol class="comment-list text-slate-200 dark:text-slate-700">
 			<?php
 			wp_list_comments(
 				array(
-					'style'      => 'ol',
+					'style' => 'ol',
 					'short_ping' => true,
+					'class' => 'bg-slate-100 dark:bg-slate-800 rounded-lg p-6 mb-6',
 				)
 			);
 			?>
@@ -59,14 +60,14 @@ if ( post_password_required() ) {
 		<?php
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) :
+		if (!comments_open()):
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'mountaviary' ); ?></p>
+			<p class="no-comments"><?php esc_html_e('Comments are closed.', 'mountaviary'); ?></p>
 			<?php
 		endif;
 
 	endif; // Check for have_comments().
-
+	
 	comment_form();
 	?>
 
