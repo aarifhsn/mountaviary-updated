@@ -355,7 +355,7 @@ get_header('part'); ?>
                   <span class="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide">Key
                     Features</span>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-4">
                   <?php
                   // Get custom features or use default ones
                   $custom_features = get_post_meta($post->ID, 'project_features', true);
@@ -369,7 +369,7 @@ get_header('part'); ?>
                   ];
 
                   foreach (array_slice($features, 0, 6) as $feature) {
-                    echo '<div class="flex items-center text-gray-600 dark:text-gray-300 text-sm"><span class="text-green-500 font-bold mr-2">✓</span>' . trim($feature) . '</div>';
+                    echo '<div class="flex items-start text-gray-600 dark:text-gray-300 text-sm"><span class="text-green-500 font-bold mr-2">✓</span>' . trim($feature) . '</div>';
                   }
                   ?>
                 </div>
