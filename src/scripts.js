@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // add an icon when menu has children or sub menu
   // all pages except custom front page (for header)
   let menuItems = document.querySelectorAll("ul li.menu-item-has-children");
-  console.log(menuItems);
 
   menuItems.forEach(function (menu_list) {
     let menu_icon_page = document.createElement("i");
@@ -137,5 +136,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     techStack.style.transition = "transform 2s ease-in-out";
     setTimeout(startFloating, 1000);
+  }
+
+  // Expandable stack
+  const btn = document.getElementById("toggleStackBtn");
+  const hiddenItems = document.querySelectorAll(".extra-stack");
+  let expanded = false;
+
+  if (btn) {
+    btn.addEventListener("click", function () {
+      expanded = !expanded;
+      hiddenItems.forEach((item) => {
+        item.classList.toggle("hidden", !expanded);
+      });
+      btn.textContent = expanded ? "Show Less" : "Show More";
+    });
   }
 });

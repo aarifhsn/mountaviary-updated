@@ -67,11 +67,41 @@
         <div
           class="left_nav_content hidden lg:block 2xl:block flex-auto h-full z-50 top-0 left-0 fixed border-r-2 w-1/5 bg-left_nav-bg  bg-cover bg-no-repeat bg-center bg-white dark:bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-sm pl-8 pr-2">
           <div class="site_title flex font-poppins pt-16">
-            <?php if (function_exists('the_custom_logo') && has_custom_logo()) { ?>
-              <div class="logo mr-4">
-                <?php the_custom_logo(); ?>
+
+
+            <?php
+            // Get logos
+            $light_logo = get_custom_logo();
+            $dark_logo_id = get_theme_mod('dark_mode_logo');
+            $dark_logo_url = $dark_logo_id ? wp_get_attachment_image_url($dark_logo_id, 'full') : '';
+            $site_name = get_bloginfo('name');
+
+            if ($light_logo || $dark_logo_url) { ?>
+              <div class="logo mr-4 relative">
+                <?php if ($light_logo): ?>
+                  <!-- Light Mode Logo -->
+                  <div class="logo-light dark:hidden">
+                    <?php echo $light_logo; ?>
+                  </div>
+                <?php endif; ?>
+
+                <?php if ($dark_logo_url): ?>
+                  <!-- Dark Mode Logo -->
+                  <div class="logo-dark hidden dark:block">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="custom-logo-link">
+                      <img src="<?php echo esc_url($dark_logo_url); ?>" alt="<?php echo esc_attr($site_name); ?>"
+                        class="custom-logo">
+                    </a>
+                  </div>
+                <?php elseif ($light_logo): ?>
+                  <!-- Fallback: show light logo in dark mode if no dark logo -->
+                  <div class="logo-dark hidden dark:block">
+                    <?php echo $light_logo; ?>
+                  </div>
+                <?php endif; ?>
               </div>
             <?php } ?>
+
             <div class="site_context">
               <?php if (display_header_text()): // If user chooses to display header text. ?>
                 <h1 class="site-title text-2xl dark:text-white"><a href="<?php echo esc_url(home_url('/')); ?>"

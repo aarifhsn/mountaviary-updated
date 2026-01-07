@@ -82,7 +82,7 @@ function mountaviary_theme_setup()
 add_action('after_setup_theme', 'mountaviary_theme_setup');
 
 include_once('inc/enqueue_scripts.php');
-// include_once('inc/customizer.php');
+include_once('inc/customizer.php');
 include_once('inc/custom_posts.php');
 include_once('inc/register_menu.php');
 include_once('inc/widget.php');
