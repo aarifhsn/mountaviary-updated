@@ -667,6 +667,21 @@ function mountaviary_customizer_register($wp_customize)
     {
         return $checked == 1 ? 1 : '';
     }
+    // Option to show or hide section
+    $wp_customize->add_setting('mountaviary_show_user_info_option', array(
+        'default' => 1,
+        'type' => 'option',
+        'sanitize_callback' => 'sanitize_contact_section_checkbox',
+    ));
+    $wp_customize->add_control('mountaviary_show_user_info_option', array(
+        'label' => __('Show User Info', 'mountaviary'),
+        'section' => 'mountaviary_front_contact_area',
+        'type' => 'checkbox'
+    ));
+    function mountaviary_show_user_info_option($checked)
+    {
+        return $checked == 1 ? 1 : '';
+    }
 
     $wp_customize->add_setting(
         'mountaviary_front_contact_page_title',
