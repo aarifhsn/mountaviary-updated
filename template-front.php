@@ -293,20 +293,52 @@ get_header('part'); ?>
 <!--PORTFOLIO SECTION-->
 <?php if (get_option('mountaviary_show_portfolio_option', true)) { ?>
   <?php
-  // Get total count first
-  $total_count_args = array('post_type' => 'mav_portfolio', 'post_status' => 'publish', 'posts_per_page' => -1);
+  // Get all portfolio categories
+  $terms = get_terms([
+    'taxonomy' => 'portfolio_category',
+    'hide_empty' => true
+  ]);
+
+  // Find Laravel category or use first category as default
+  $default_category = 'laravel'; // default slug
+  $category_exists = false;
+  if ($terms && !is_wp_error($terms)) {
+    foreach ($terms as $term) {
+      if ($term->slug === 'laravel') {
+        $category_exists = true;
+        break;
+      }
+    }
+    // If laravel doesn't exist, use first category
+    if (!$category_exists && !empty($terms)) {
+      $default_category = $terms[0]->slug;
+    }
+  }
+
+  // Get only Laravel (or default category) projects - 6 max
+  $args = array(
+    'post_type' => 'mav_portfolio',
+    'post_status' => 'publish',
+    'posts_per_page' => 6,
+    'orderby' => 'date',
+    'order' => 'DESC',
+  );
+  $portfolio_query = new WP_Query($args);
+
+  // Get total count for this category
+  $total_count_args = array(
+    'post_type' => 'mav_portfolio',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+  );
   $total_query = new WP_Query($total_count_args);
   $total_projects = $total_query->found_posts;
   wp_reset_postdata();
 
-  // Get only 6 for homepage
-  $args = array('post_type' => 'mav_portfolio', 'post_status' => 'publish', 'posts_per_page' => 6, 'orderby' => 'date', 'order' => 'DESC');
-  $portfolio_query = new WP_Query($args);
-
   if ($portfolio_query->have_posts()):
     ?>
 
-    <section id="portfolio" x-data="{ activeFilter: 'all' }"
+    <section id="portfolio" x-data="{ activeFilter: '<?php echo esc_js($default_category); ?>' }"
       class="relative portfolio_area min-h-screen py-12 px-4 bg-gray-200 dark:bg-gray-900">
 
       <!-- Section Header with Count -->
@@ -315,29 +347,14 @@ get_header('part'); ?>
           <?php echo esc_html(get_theme_mod('mountaviary_portfolio_title_text', 'Recent Projects')); ?>
         </h2>
         <p class="text-slate-500 dark:text-slate-400 text-sm font-semibold">
-          Showing <?php echo $portfolio_query->found_posts; ?> of <?php echo $total_projects; ?> projects
+          Showing <?php echo $portfolio_query->found_posts; ?> of <?php echo $total_projects; ?>
+          <span class="capitalize"><?php echo str_replace('-', ' ', $default_category); ?></span> projects
         </p>
       </div>
 
-      <?php
-      // Get all portfolio categories
-      $terms = get_terms([
-        'taxonomy' => 'portfolio_category',
-        'hide_empty' => true
-      ]);
-      ?>
-
-      <!-- Category Filter Buttons -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12">
-
-        <!-- ALL TAB -->
-        <button @click="activeFilter = 'all'"
-          :class="activeFilter === 'all' ? 'bg-slate-800 dark:bg-slate-700 text-white' : 'bg-gray-300 dark:bg-slate-600 text-gray-800 dark:text-slate-200'"
-          class="px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wide transition-all duration-200 hover:bg-slate-700 hover:text-white">
-          All Projects
-        </button>
-
-        <?php if ($terms && !is_wp_error($terms)): ?>
+      <!-- Category Filter Buttons (NO "All" button) -->
+      <?php if ($terms && !is_wp_error($terms)): ?>
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
           <?php foreach ($terms as $term): ?>
             <button @click="activeFilter = '<?php echo esc_attr($term->slug); ?>'"
               :class="activeFilter === '<?php echo esc_attr($term->slug); ?>' ? 'bg-slate-800 dark:bg-slate-700 text-white' : 'bg-gray-300 dark:bg-slate-600 text-gray-800 dark:text-slate-200'"
@@ -345,9 +362,8 @@ get_header('part'); ?>
               <?php echo esc_html($term->name); ?>
             </button>
           <?php endforeach; ?>
-        <?php endif; ?>
-
-      </div>
+        </div>
+      <?php endif; ?>
 
       <!-- Portfolio Grid -->
       <div class="portfolio_page max-w-6xl mx-auto">
@@ -368,7 +384,7 @@ get_header('part'); ?>
           $tags = get_the_terms(get_the_ID(), 'portfolio_tech_stack');
           ?>
 
-          <div x-show="activeFilter === 'all' || '<?php echo esc_attr($cat_slugs_string); ?>'.includes(activeFilter)"
+          <div x-show="'<?php echo esc_attr($cat_slugs_string); ?>'.split(' ').includes(activeFilter)"
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95"
             x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 scale-95"
@@ -479,12 +495,12 @@ get_header('part'); ?>
         <?php endwhile; ?>
       </div>
 
-      <!-- View All Projects Button (only show if more than 6 exist) -->
+      <!-- View All Projects Button -->
       <?php if ($total_projects > 6): ?>
         <div class="flex justify-center mt-16">
           <a href="<?php echo esc_url(get_post_type_archive_link('mav_portfolio')); ?>"
             class="group inline-flex items-center gap-3 bg-slate-800 dark:bg-slate-700 hover:bg-gray-500 dark:hover:bg-gray-500 text-white font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <span>View All <?php echo $total_projects; ?> Projects</span>
+            <span>View All Projects</span>
             <span class="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
           </a>
         </div>
