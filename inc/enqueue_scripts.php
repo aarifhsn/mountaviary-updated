@@ -45,6 +45,9 @@ function mountaviary_scripts()
 
 	wp_enqueue_script('custom-masonry', 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', array(), '4.2.2', true);
 
+	// enqueue alpine js
+	wp_enqueue_script('alpine', 'https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js', array(), '2.8.0', true);
+
 
 }
 add_action('wp_enqueue_scripts', 'mountaviary_scripts');

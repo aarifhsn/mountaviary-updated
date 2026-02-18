@@ -23,25 +23,32 @@
 
   <header class="bg-white dark:bg-gray-900 relative md:fixed top-0 left-0 min-h-[60px] z-40 w-full shadow-sm">
     <div class="header_container flex justify-between items-center py-2 px-8">
-      <div class="site_title flex font-poppins items-center">
-        <?php if (function_exists('the_custom_logo') && has_custom_logo()) { ?>
-          <div class="logo mr-4">
-            <?php the_custom_logo(); ?>
-          </div>
-        <?php } ?>
-        <div class="site_context">
-          <?php if (display_header_text()): // If user chooses to display header text. ?>
-            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" class="font-bold dark:text-white"
-                rel="home"><?php echo get_bloginfo('name'); ?></a></h1>
+      <!-- Mobile Logo -->
+      <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="flex items-center gap-2.5 no-underline">
+        <!-- Gray A icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="36" height="36">
+          <!-- Light mode: dark bg, gray icon -->
+          <rect width="48" height="48" rx="8" fill="#0F172A" class="dark:hidden" />
+          <polygon points="24,6 13,42 19,42 24,20" fill="#F59E0B" class="dark:hidden" />
+          <polygon points="24,6 35,42 29,42 24,20" fill="#F59E0B" class="dark:hidden" />
+          <rect x="14" y="28" width="20" height="3" rx="1.5" fill="#F59E0B" class="dark:hidden" />
+          <circle cx="39" cy="11" r="4" fill="#F59E0B" opacity="0.9" class="dark:hidden" />
 
-            <?php
-            $description = get_bloginfo('description', 'display');
-            if ($description || is_customize_preview()): ?>
-              <h4 class="text-xs text-slate-500 dark:text-slate-400 italic "><?php echo $description; ?></h4>
-            <?php endif; ?>
-          <?php endif; ?>
+          <!-- Dark mode: light bg, gray icon -->
+          <rect width="48" height="48" rx="8" fill="#F8FAFC" class="hidden dark:block" />
+          <polygon points="24,6 13,42 19,42 24,20" fill="#F59E0B" class="hidden dark:block" />
+          <polygon points="24,6 35,42 29,42 24,20" fill="#F59E0B" class="hidden dark:block" />
+          <rect x="14" y="28" width="20" height="3" rx="1.5" fill="#F59E0B" class="hidden dark:block" />
+          <circle cx="39" cy="11" r="4" fill="#D97706" opacity="0.95" class="hidden dark:block" />
+        </svg>
+
+        <div>
+          <div class="text-sm font-extrabold text-slate-900 dark:text-white leading-tight">
+            arif<span class="font-extralight ml-1">hassan</span>
+          </div>
+          <div class="text-[7px] font-bold tracking-wider text-slate-400 uppercase">Full-Stack Dev</div>
         </div>
-      </div>
+      </a>
       <div class="top_menu z-[15]">
         <div class="navbar  text-sm relative">
           <div class="screen_menu">

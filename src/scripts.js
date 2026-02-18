@@ -1,32 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuButton = document.getElementById("mobile-menu");
+  const mobileMenuContainer = document.querySelector(".mount_top_mobile_menu");
   const navList = document.querySelector(".mount_top_mobile_menu ul");
 
-  mobileMenuButton.addEventListener("click", function (event) {
-    event.stopPropagation(); // Stop propagation to prevent document click listener from firing
-    navList.classList.toggle("show");
-    mobileMenuButton.classList.toggle("active");
-  });
+  if (mobileMenuButton && navList) {
+    // Initially hide the menu
+    navList.style.display = "none";
 
-  document.addEventListener("click", function (event) {
-    if (!navList.contains(event.target) && event.target !== mobileMenuButton) {
-      navList.classList.remove("show");
-      mobileMenuButton.classList.remove("active");
-    }
-  });
+    mobileMenuButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      // Toggle visibility
+      if (navList.style.display === "none" || navList.style.display === "") {
+        navList.style.display = "block";
+        mobileMenuButton.classList.add("active");
+      } else {
+        navList.style.display = "none";
+        mobileMenuButton.classList.remove("active");
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+      if (
+        !mobileMenuContainer.contains(event.target) &&
+        event.target !== mobileMenuButton
+      ) {
+        navList.style.display = "none";
+        mobileMenuButton.classList.remove("active");
+      }
+    });
+
+    // Close menu when clicking a nav link
+    const navLinks = navList.querySelectorAll("a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        navList.style.display = "none";
+        mobileMenuButton.classList.remove("active");
+      });
+    });
+  }
 
   // add an icon when menu has children or sub menu
-  // all pages except custom front page (for header)
   let menuItems = document.querySelectorAll("ul li.menu-item-has-children");
 
   menuItems.forEach(function (menu_list) {
     let menu_icon_page = document.createElement("i");
     menu_icon_page.className = "fa-solid fa-caret-down";
 
-    // Get the first child of menu_list
     let firstChild = menu_list.firstChild;
-
-    // Insert menu_icon_page just after the first child
     menu_list.insertBefore(menu_icon_page, firstChild.nextSibling);
   });
 
@@ -149,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hiddenItems.forEach((item) => {
         item.classList.toggle("hidden", !expanded);
       });
-      btn.textContent = expanded ? "Show Less" : "Show More";
+      btn.textContent = expanded ? "Show Less" : "Show More...";
     });
   }
 });
