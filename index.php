@@ -150,7 +150,7 @@ if ($is_first_page && $is_featured_present) {
               </h2>
 
               <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                <?php echo wp_trim_words(get_the_excerpt($featured_post), 22, '…'); ?>
+                <?php echo wp_trim_words(get_the_excerpt($featured_post), 150, '…'); ?>
               </p>
 
             </article>
@@ -323,7 +323,7 @@ if ($is_first_page && $is_featured_present) {
 
                 </a>
                 <div class="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                  <?php echo wp_trim_words(get_the_excerpt($lp), 120, '…'); ?>
+                  <?php echo wp_trim_words(get_the_excerpt($lp), 150, '…'); ?>
                 </div>
               </h3>
 

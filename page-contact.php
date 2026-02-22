@@ -141,7 +141,7 @@ get_header('topnav');
                     $contact_form = get_theme_mod('mountaviary_contact_form');
                     if ($contact_form):
                         // Use plugin shortcode (e.g. WPForms, CF7)
-                        echo do_shortcode(esc_html($contact_form));
+                        echo do_shortcode($contact_form);
                     else:
                         // Fallback: native HTML form
                         ?>

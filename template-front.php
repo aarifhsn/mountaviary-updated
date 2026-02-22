@@ -670,7 +670,7 @@ get_header('topnav'); ?>
             </div>
             <div class="blog_content py-3 px-8">
               <h4 class="text-sm font-normal leading-8 text-slate-500 dark:text-slate-300 hover:text-slate-950 mb-2">
-                <?php the_excerpt(); ?>
+                <?php echo wp_trim_words(get_the_excerpt(), 18, '…'); ?>
               </h4>
             </div>
           </div>

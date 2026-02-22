@@ -11,7 +11,7 @@ add_filter('excerpt_length', 'mpuntaviary_excerpt_length');
 function mountaviary_post_excerpt()
 {
     global $post;
-    return '<a class="font-medium text-sm mt-4  hover:text-slate-700 block transition-all" href="' . get_permalink($post->ID) . ' ">' . 'Read More...' . '</a>';
+    return '<a class="font-medium text-sm mt-4  hover:text-slate-700 block transition-all" href="' . get_permalink($post->ID) . ' ">' . '...' . '</a>';
 }
 add_filter('excerpt_more', 'mountaviary_post_excerpt');
 

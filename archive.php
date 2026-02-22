@@ -75,7 +75,7 @@ get_header('topnav');
 
 							<!-- Excerpt -->
 							<p class="text-sm leading-relaxed text-slate-400 dark:text-slate-500 line-clamp-2">
-								<?php echo wp_trim_words(get_the_excerpt(), 18, '…'); ?>
+								<?php echo wp_trim_words(get_the_excerpt(), 18, '...'); ?>
 							</p>
 
 						</div>
