@@ -66,7 +66,7 @@ get_header('topnav');
 							</div>
 
 							<!-- Title -->
-							<h3 class="font-bold leading-snug text-slate-900 dark:text-slate-100 mb-1" style="font-size:15px;">
+							<h3 class="font-bold leading-snug text-slate-900 dark:text-slate-100 mb-1" style="font-size:16px;">
 								<a href="<?php the_permalink(); ?>"
 									class="no-underline hover:text-slate-500 dark:hover:text-slate-300 transition-colors">
 									<?php the_title(); ?>
@@ -74,7 +74,7 @@ get_header('topnav');
 							</h3>
 
 							<!-- Excerpt -->
-							<p class="text-xs leading-relaxed text-slate-400 dark:text-slate-500 line-clamp-2">
+							<p class="text-sm leading-relaxed text-slate-400 dark:text-slate-500 line-clamp-2">
 								<?php echo wp_trim_words(get_the_excerpt(), 18, '…'); ?>
 							</p>
 

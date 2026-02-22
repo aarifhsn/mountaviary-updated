@@ -41,12 +41,12 @@
           </g>
         </svg>
         <div>
-          <div style="font-size:15px; font-weight:800; letter-spacing:-0.3px; line-height:1.1;"
+          <div style="font-size:16px; font-weight:800; letter-spacing:-0.3px; line-height:1.1;"
             class="text-slate-900 dark:text-white">
-            arif<span style="font-weight:300;">hassan</span>
+            arif <span style="font-weight:300;">hassan</span>
           </div>
           <div style="font-size:7px; font-weight:700; letter-spacing:3px; text-transform:uppercase; line-height:1;"
-            class="text-slate-300 dark:text-slate-600">dev · blog</div>
+            class="text-slate-400 dark:text-slate-600">dev · blog</div>
         </div>
       </a>
 
@@ -93,11 +93,23 @@
       </nav>
 
       <!-- MOBILE HAMBURGER — visible only on mobile -->
-      <button
-        class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 bg-transparent cursor-pointer transition-all hover:bg-slate-50 dark:hover:bg-slate-800"
-        onclick="document.getElementById('mobile-nav').classList.toggle('hidden');" aria-label="Toggle menu">
-        <i class="fa-solid fa-bars text-xs"></i>
-      </button>
+      <div class="md:hidden flex items-center gap-2">
+
+        <!-- Mobile search toggle -->
+        <button
+          class="flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 bg-transparent cursor-pointer transition-all hover:bg-slate-50 dark:hover:bg-slate-800"
+          onclick="document.getElementById('global-search').classList.toggle('hidden');" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass text-xs"></i>
+        </button>
+
+        <!-- Hamburger -->
+        <button
+          class="flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 bg-transparent cursor-pointer transition-all hover:bg-slate-50 dark:hover:bg-slate-800"
+          onclick="document.getElementById('mobile-nav').classList.toggle('hidden');" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-xs"></i>
+        </button>
+
+      </div>
 
     </div>
 
@@ -132,24 +144,35 @@
 
     <!-- Global Search Overlay -->
     <div id="global-search"
-      class="hidden absolute left-0 top-full w-full border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-gray-950 shadow-lg">
+      class="hidden absolute left-0 top-full w-full border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-gray-950 shadow-xl">
       <div style="max-width:1200px; margin:0 auto; padding:1rem 1.5rem;">
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">
-          <i class="fa-solid fa-magnifying-glass text-xs text-slate-300 dark:text-slate-600"></i>
+
+          <i class="fa-solid fa-magnifying-glass text-sm text-slate-500 dark:text-slate-400"></i>
+
           <input type="search" name="s" placeholder="Search posts…" value="<?php echo esc_attr(get_search_query()); ?>"
-            autofocus
-            class="flex-1 bg-transparent text-sm text-slate-800 dark:text-slate-200 placeholder-slate-300 dark:placeholder-slate-600 outline-none py-2" />
-          <button type="submit"
-            class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
-            style="letter-spacing:1.5px;">Go</button>
-          <button type="button" onclick="document.getElementById('global-search').classList.add('hidden');"
-            class="text-slate-300 dark:text-slate-600 hover:text-slate-500 dark:hover:text-slate-400 transition-colors ml-1">
+            autofocus class="flex-1 bg-transparent text-sm font-medium text-slate-800 dark:text-slate-100
+          placeholder-slate-400 dark:placeholder-slate-500
+          border border-slate-200 dark:border-slate-700 py-2 px-4 rounded-lg" />
+
+          <button type="submit" class="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-colors
+          bg-slate-100 dark:bg-slate-800
+          text-slate-600 dark:text-slate-300
+          hover:bg-slate-200 dark:hover:bg-slate-700
+          hover:text-slate-900 dark:hover:text-white" style="letter-spacing:1.5px;">Go
+          </button>
+
+          <button type="button" onclick="document.getElementById('global-search').classList.add('hidden');" class="w-7 h-7 flex items-center justify-center rounded-lg transition-colors
+          text-slate-500 dark:text-slate-400
+          hover:text-slate-900 dark:hover:text-white
+          hover:bg-slate-100 dark:hover:bg-slate-800">
             <i class="fa-solid fa-xmark text-sm"></i>
           </button>
+
         </form>
       </div>
     </div>
-    </div>
+
   </header>
 
   <!-- Spacer for fixed header -->
