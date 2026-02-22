@@ -469,7 +469,7 @@ function mountaviary_customizer_register($wp_customize)
 
     function sanitize_footer_checkbox($checked)
     {
-        return $checked == 1 ? 1 : '';
+        return $checked ? 1 : 0;
     }
 
 

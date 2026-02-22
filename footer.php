@@ -86,7 +86,7 @@
     <div
       class="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2">
 
-      <?php if (get_option('mountaviary_footer_option_setting')): ?>
+      <?php if (get_option('mountaviary_footer_option_setting', 1)): ?>
         <p class="text-xs text-slate-400 dark:text-slate-600">
           &copy;<?php echo date('Y'); ?>
           <a href="<?php echo esc_url(home_url('/')); ?>"
@@ -100,7 +100,6 @@
           &copy;<?php echo date('Y'); ?>   <?php echo esc_html(get_bloginfo('name')); ?>
         </p>
       <?php endif; ?>
-
     </div>
 
   </div>
