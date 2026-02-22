@@ -2,58 +2,59 @@
 /**
  * The template for displaying all pages
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
  * @package Mountaviary
- * 
  * @since Mountaviary 1.0.0
  */
 
-get_header();
+get_header('topnav');
 ?>
-<!-- PAGE SECTION  -->
-<section id="blog" class="blog_posts min-h-[100vh] my-4 text-sm text-slate-800  mb-2 leading-7 font-poppins  px-4">
 
-  <div class="blog_info_area">
-    <?php if (have_posts()): ?>
-      <?php while (have_posts()):
+<main class="bg-white dark:bg-gray-950 min-h-screen font-poppins">
+  <div style="max-width:740px; margin:0 auto; padding:2.5rem 1.5rem 4rem;">
+
+    <?php if (have_posts()):
+      while (have_posts()):
         the_post(); ?>
-        <div <?php post_class('single_blog bg-white shadow-sm mb-4 rounded-lg'); ?>>
 
-          <div class="blog_content px-4 py-3">
-            <h2 class="font-bold text-lg my-4 capitalize underline decoration-slate-200 underline-offset-[10px]">
-              <?php single_post_title(); ?>
-            </h2>
+        <article <?php post_class(''); ?>>
 
+          <!-- Title -->
+          <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight text-slate-900 dark:text-slate-50 mb-3">
+            <?php single_post_title(); ?>
+          </h1>
+
+          <!-- Divider -->
+          <div class="border-b border-slate-100 dark:border-slate-800 mb-8"></div>
+
+          <!-- Page Content -->
+          <div class="single_content prose prose-slate dark:prose-invert max-w-none
+          text-slate-700 dark:text-slate-300
+          leading-relaxed text-base mb-8">
             <?php the_content(); ?>
-
-            <div class="page_comments mt-12">
-              <?php // If comments are open or we have at least one comment, load up the comment template.
-                  if (comments_open() || get_comments_number()):
-                    comments_template();
-                  endif;
-                  ?>
-            </div>
           </div>
-        </div>
 
-        <?php
-      endwhile; ?>
-      <?php the_posts_navigation(array(
-        'mid_size' => 1,
-        'prev_text' => _x('&#8592 Previous Page', 'Navigation previous page', 'mountaviary'),
-        'next_text' => _x('Next Page &#8594', 'Navigation Next page', 'mountaviary'),
-        'class' => 'text-slate-500'
+          <!-- Page links (multi-page posts) -->
+          <?php wp_link_pages([
+            'before' => '<div class="flex items-center gap-2 my-6 text-sm font-semibold text-slate-500 dark:text-slate-400">Pages:',
+            'after' => '</div>',
+            'link_before' => '<span class="px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">',
+            'link_after' => '</span>',
+          ]); ?>
 
-      ));
+        </article>
 
-    else: ?>
+        <!-- Comments -->
+        <?php if (comments_open() || get_comments_number()): ?>
+          <div class="mt-10 pt-8 border-t border-slate-100 dark:border-slate-800">
+            <?php comments_template(); ?>
+          </div>
+        <?php endif; ?>
+
+      <?php endwhile; else: ?>
       <?php get_template_part('404'); ?>
     <?php endif; ?>
 
   </div>
-</section>
+</main>
+
 <?php get_footer(); ?>

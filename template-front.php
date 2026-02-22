@@ -3,8 +3,8 @@
  * Template Name: Custom Front Page 
  */
 
-get_header('part'); ?>
-
+get_header('topnav'); ?>
+-
 <?php if (get_option('front_page_user_info', 1)) { ?>
   <section id="home"
     class="devs_top_info min-h-[480px] md:min-h-screen flex justify-center items-center text-start px-4 lg:px-16 xl:px-32 2xl:px-12 pt-24 md:py-0 mb-12 md:my-2 bg-contain bg-center bg-no-repeat relative">

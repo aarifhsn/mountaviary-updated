@@ -44,7 +44,7 @@
 
         <div>
           <div class="text-sm font-extrabold text-slate-900 dark:text-white leading-tight">
-            arif<span class="font-extralight ml-1">hassan</span>
+            arif <span class="font-extralight ml-1">hassan</span>
           </div>
           <div class="text-[7px] font-bold tracking-wider text-slate-400 uppercase">Full-Stack Dev</div>
         </div>

@@ -310,6 +310,100 @@ img {
   left: 0 !important;
 }
 
+/* ============================================================
+   Mountaviary — Nav & Footer Menu Styles
+   Add this to your theme's style.css or enqueue separately
+   ============================================================ */
+
+/* ── Desktop header nav links ───────────────────────────────── */
+.mount_top_menu .menu_list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mount_top_menu .menu_list li a {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  color: #64748b; /* slate-500 */
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.mount_top_menu .menu_list li a:hover,
+.mount_top_menu .menu_list li.current-menu-item a {
+  color: #0f172a; /* slate-900 */
+  background-color: #f1f5f9; /* slate-100 */
+}
+
+/* Dark mode */
+.dark .mount_top_menu .menu_list li a {
+  color: #94a3b8; /* slate-400 */
+}
+
+.dark .mount_top_menu .menu_list li a:hover,
+.dark .mount_top_menu .menu_list li.current-menu-item a {
+  color: #f1f5f9; /* slate-100 */
+  background-color: #1e293b; /* slate-800 */
+}
+
+/* ── Mobile nav links ───────────────────────────────────────── */
+.mount_top_menu.mobile .menu_list {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.mount_top_menu.mobile .menu_list li a {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* ── Footer nav menu ────────────────────────────────────────── */
+.footer-nav-wrap .footer-menu-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav-wrap .footer-menu-list li a {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  color: #94a3b8; /* slate-400 */
+  transition: color 0.2s;
+}
+
+.footer-nav-wrap .footer-menu-list li a:hover {
+  color: #1e293b; /* slate-800 */
+}
+
+/* Dark mode */
+.dark .footer-nav-wrap .footer-menu-list li a {
+  color: #64748b; /* slate-500 */
+}
+
+.dark .footer-nav-wrap .footer-menu-list li a:hover {
+  color: #f1f5f9; /* slate-100 */
+}
+
 .person_social_info ul li a:hover {
   background: linear-gradient(145deg, #cbdde9, #dad2d2);
 }
@@ -865,6 +959,78 @@ img.aligncenter {
   border: 0px;
 }
 
+/* Pagination */
+.page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-numbers li a,
+.page-numbers li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid #e2e8f0; /* slate-200 */
+  color: #64748b; /* slate-500 */
+  background-color: #ffffff;
+}
+
+.page-numbers li a:hover {
+  color: #0f172a; /* slate-900 */
+  background-color: #f1f5f9; /* slate-100 */
+  border-color: #cbd5e1; /* slate-300 */
+}
+
+.page-numbers li span.current {
+  color: #ffffff;
+  background-color: #0f172a; /* slate-900 */
+  border-color: #0f172a;
+}
+
+.page-numbers li .dots {
+  border: none;
+  background: transparent;
+  color: #94a3b8; /* slate-400 */
+}
+
+/* Dark mode */
+.dark .page-numbers li a,
+.dark .page-numbers li span {
+  background-color: transparent;
+  border-color: #1e293b; /* slate-800 */
+  color: #94a3b8; /* slate-400 */
+}
+
+.dark .page-numbers li a:hover {
+  color: #f1f5f9;
+  background-color: #1e293b; /* slate-800 */
+  border-color: #334155; /* slate-700 */
+}
+
+.dark .page-numbers li span.current {
+  color: #0f172a;
+  background-color: #f1f5f9;
+  border-color: #f1f5f9;
+}
+
+.dark .page-numbers li .dots {
+  background: transparent;
+  border: none;
+  color: #475569; /* slate-600 */
+}
+
 /*
 ** RESPONSIVE CSS
 */
@@ -881,4 +1047,232 @@ img.aligncenter {
   .blog_info_area .blog-post {
     width: calc(50% - 40px); /* 2 columns */
   }
+}
+
+/* ── Comment reply link ─────────────────────────────────────── */
+.comment-reply a {
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #94a3b8; /* slate-400 */
+  transition: color 0.2s;
+}
+.comment-reply a:hover {
+  color: #1e293b; /* slate-800 */
+}
+.dark .comment-reply a {
+  color: #475569;
+} /* slate-600 */
+.dark .comment-reply a:hover {
+  color: #f1f5f9;
+}
+
+/* ── Author link inside comment ─────────────────────────────── */
+.comment-list .comment-author a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Comment form submit button ─────────────────────────────── */
+.comment-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  background-color: #0f172a; /* slate-900 */
+  color: #ffffff;
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+}
+.comment-submit-btn:hover {
+  background-color: #1e293b;
+}
+
+.dark .comment-submit-btn {
+  background-color: #f1f5f9; /* slate-100 */
+  color: #0f172a;
+}
+.dark .comment-submit-btn:hover {
+  background-color: #e2e8f0;
+}
+
+/* ── Nested/child comments indent ───────────────────────────── */
+.comment-list .children {
+  list-style: none;
+  padding-left: 44px;
+  margin-top: 8px;
+}
+
+/* ── Pagination ─────────────────────────────────────────────── */
+.page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  background-color: #ffffff;
+}
+
+.page-numbers:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.page-numbers.current {
+  color: #ffffff;
+  background-color: #0f172a;
+  border-color: #0f172a;
+}
+
+.page-numbers.next,
+.page-numbers.prev {
+  font-size: 16px;
+  color: #94a3b8;
+  border-color: #f1f5f9;
+  background-color: #f8fafc;
+}
+
+.page-numbers.next:hover,
+.page-numbers.prev:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* Dark mode */
+.dark .page-numbers {
+  background-color: transparent;
+  border-color: #1e293b;
+  color: #94a3b8;
+}
+
+.dark .page-numbers:hover {
+  color: #f1f5f9;
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.dark .page-numbers.current {
+  color: #0f172a;
+  background-color: #f1f5f9;
+  border-color: #f1f5f9;
+}
+
+.dark .page-numbers.next,
+.dark .page-numbers.prev {
+  color: #475569;
+  background-color: transparent;
+  border-color: #1e293b;
+}
+
+.dark .page-numbers.next:hover,
+.dark .page-numbers.prev:hover {
+  color: #f1f5f9;
+  background-color: #1e293b;
+}
+
+/* ── Search Form ─────────────────────────────────────────────── */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-form label {
+  flex: 1;
+}
+
+.search-field {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #1e293b;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.search-field::placeholder {
+  color: #cbd5e1;
+}
+
+.search-field:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.15);
+}
+
+.search-submit {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.search-submit:hover {
+  background-color: #1e293b;
+}
+
+/* Screen reader only */
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Dark mode */
+.dark .search-field {
+  background-color: transparent;
+  border-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.dark .search-field::placeholder {
+  color: #334155;
+}
+
+.dark .search-field:focus {
+  border-color: #334155;
+  box-shadow: 0 0 0 3px rgba(51, 65, 85, 0.3);
+}
+
+.dark .search-submit {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.dark .search-submit:hover {
+  background-color: #e2e8f0;
 }
