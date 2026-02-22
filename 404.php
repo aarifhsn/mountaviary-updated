@@ -15,7 +15,7 @@ get_header('topnav');
 		<div class="text-center mb-12">
 			<p class="text-7xl font-extrabold text-slate-100 dark:text-slate-800 mb-2" style="letter-spacing:-2px;">404
 			</p>
-			<h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50 mb-3">
+			<h1 class="text-2xl sm:text-3xl font-extrabold text-slate-700 dark:text-slate-50 mb-3">
 				<?php esc_html_e('Page not found', 'mountaviary'); ?>
 			</h1>
 			<p class="text-sm text-slate-400 dark:text-slate-500 max-w-sm mx-auto">
@@ -46,7 +46,7 @@ get_header('topnav');
 							class="flex items-start gap-2 py-2.5 border-b border-slate-100 dark:border-slate-800 no-underline group last:border-0">
 							<span class="text-slate-200 dark:text-slate-700 mt-0.5 flex-shrink-0">›</span>
 							<span
-								class="text-sm font-semibold text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors leading-snug">
+								class="text-sm font-semibold text-slate-600 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-100 transition-colors leading-snug">
 								<?php the_title(); ?>
 							</span>
 						</a>
@@ -65,7 +65,7 @@ get_header('topnav');
 					<a href="<?php echo esc_url(get_category_link($cat->term_id)); ?>"
 						class="flex items-center justify-between py-2.5 border-b border-slate-100 dark:border-slate-800 no-underline group last:border-0">
 						<span
-							class="text-sm font-semibold text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors">
+							class="text-sm font-semibold text-slate-600 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-100 transition-colors">
 							<?php echo esc_html($cat->name); ?>
 						</span>
 						<span class="text-xs font-bold text-slate-300 dark:text-slate-600">

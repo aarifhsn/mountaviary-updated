@@ -42,7 +42,7 @@
         </svg>
         <div>
           <div style="font-size:16px; font-weight:800; letter-spacing:-0.3px; line-height:1.1;"
-            class="text-slate-900 dark:text-white">
+            class="text-slate-700 dark:text-white">
             arif <span style="font-weight:300;">hassan</span>
           </div>
           <div style="font-size:7px; font-weight:700; letter-spacing:3px; text-transform:uppercase; line-height:1;"
@@ -159,12 +159,12 @@
           bg-slate-100 dark:bg-slate-800
           text-slate-600 dark:text-slate-300
           hover:bg-slate-200 dark:hover:bg-slate-700
-          hover:text-slate-900 dark:hover:text-white" style="letter-spacing:1.5px;">Go
+          hover:text-slate-700 dark:hover:text-white" style="letter-spacing:1.5px;">Go
           </button>
 
           <button type="button" onclick="document.getElementById('global-search').classList.add('hidden');" class="w-7 h-7 flex items-center justify-center rounded-lg transition-colors
           text-slate-500 dark:text-slate-400
-          hover:text-slate-900 dark:hover:text-white
+          hover:text-slate-700 dark:hover:text-white
           hover:bg-slate-100 dark:hover:bg-slate-800">
             <i class="fa-solid fa-xmark text-sm"></i>
           </button>

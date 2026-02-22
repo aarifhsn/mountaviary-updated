@@ -47,7 +47,7 @@
         </svg>
 
         <div>
-          <div class="text-sm font-extrabold text-slate-900 dark:text-white leading-tight">
+          <div class="text-sm font-extrabold text-slate-700 dark:text-white leading-tight">
             arif<span class="font-extralight ml-1">hassan</span>
           </div>
           <div class="text-[7px] font-bold tracking-wider text-slate-400 uppercase">Full-Stack Dev</div>
@@ -107,7 +107,7 @@
                 </div>
 
                 <div>
-                  <div class="text-base font-extrabold text-slate-900 dark:text-white leading-tight">
+                  <div class="text-base font-extrabold text-slate-700 dark:text-white leading-tight">
                     arif<span class="font-extralight ml-1">hassan</span>
                   </div>
                   <div class="text-[7px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">
@@ -135,7 +135,7 @@
               foreach ($nav_items as $item): ?>
                 <li>
                   <a href="<?php echo $item['href']; ?>"
-                    class="group flex items-center gap-3 px-3 py-2.5 rounded-xl text-[10px] font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 relative overflow-hidden">
+                    class="group flex items-center gap-3 px-3 py-2.5 rounded-xl text-[10px] font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 relative overflow-hidden">
 
                     <!-- Gray left accent bar (slides in on hover) -->
                     <span

@@ -142,7 +142,7 @@ if ($is_first_page && $is_featured_present) {
               </div>
 
               <h2
-                class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight my-3 text-slate-900 dark:text-slate-50">
+                class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight my-3 text-slate-700 dark:text-slate-50">
                 <a href="<?php echo esc_url(get_permalink($featured_post)); ?>"
                   class="no-underline hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
                   <?php echo esc_html(get_the_title($featured_post)); ?>
@@ -219,7 +219,7 @@ if ($is_first_page && $is_featured_present) {
                   </div>
 
                   <h3
-                    class="text-xl sm:text-2xl lg:text-2xl font-extrabold text-md leading-snug text-slate-900 dark:text-slate-100">
+                    class="text-xl sm:text-2xl lg:text-2xl font-extrabold text-md leading-snug text-slate-700 dark:text-slate-100">
                     <a href="<?php echo esc_url(get_permalink($gp)); ?>"
                       class="no-underline hover:text-slate-500 dark:hover:text-slate-300 transition-colors">
                       <?php echo esc_html(get_the_title($gp)); ?>
@@ -243,13 +243,13 @@ if ($is_first_page && $is_featured_present) {
         <!-- Section header -->
         <div class="flex items-end justify-between pb-4 mb-8 border-b border-slate-100 dark:border-slate-800">
           <div>
-            <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-50">Latest Posts</h2>
+            <h2 class="text-xl font-extrabold text-slate-700 dark:text-slate-50">Latest Posts</h2>
             <p class="text-sm mt-0.5 text-slate-400 dark:text-slate-500">Stay ahead with the freshest content and
               insights.</p>
           </div>
           <a href="<?php echo esc_url(get_pagenum_link(2)); ?>" class="no-underline text-xs font-bold uppercase flex items-center gap-1 transition-colors
               text-slate-500 dark:text-slate-400
-              hover:text-slate-900 dark:hover:text-white" style="letter-spacing:1.5px; white-space:nowrap;">
+              hover:text-slate-700 dark:hover:text-white" style="letter-spacing:1.5px; white-space:nowrap;">
             View All <span>›</span>
           </a>
         </div>
@@ -315,7 +315,7 @@ if ($is_first_page && $is_featured_present) {
                 </span>
               </div>
 
-              <h3 class=" leading-snug text-slate-900 dark:text-slate-100">
+              <h3 class=" leading-snug text-slate-700 dark:text-slate-100">
                 <a href="<?php echo esc_url(get_permalink($lp)); ?>"
                   class="text-xl md:text-2xl font-bold no-underline hover:text-slate-500 dark:hover:text-slate-300 transition-colors text-md">
                   <?php echo esc_html(get_the_title($lp)); ?>

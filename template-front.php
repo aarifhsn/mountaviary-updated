@@ -413,7 +413,7 @@ get_header('topnav'); ?>
                 <div
                   class="absolute inset-0 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl">
                   <a href="<?php echo esc_url($portfolio_link); ?>" target="_blank"
-                    class="px-6 py-3 bg-white hover:bg-gray-500 text-slate-900 hover:text-white font-bold text-sm uppercase tracking-wide rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    class="px-6 py-3 bg-white hover:bg-gray-500 text-slate-700 hover:text-white font-bold text-sm uppercase tracking-wide rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
                     View Project →
                   </a>
                 </div>
@@ -432,7 +432,7 @@ get_header('topnav'); ?>
               <?php endif; ?>
 
               <!-- Project Title -->
-              <h3 class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h3 class="text-2xl lg:text-3xl font-bold text-slate-700 dark:text-white leading-tight">
                 <?php the_title(); ?>
               </h3>
 
@@ -643,12 +643,12 @@ get_header('topnav'); ?>
 
             <div class="post_title pt-2 mt-2 text-xl px-8">
               <?php
-              the_title('<h2 class="entry-title"><a class="font-semibold text-slate-700 dark:text-slate-100 leading-8 hover:text-slate-900" href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
+              the_title('<h2 class="entry-title"><a class="font-semibold text-slate-700 dark:text-slate-100 leading-8 hover:text-slate-700" href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
             </div>
             <div class="author_info block md:flex items-center gap-x-2 gap-y-4 py-2 mt-2 px-8">
               <?php echo get_avatar(get_the_author_meta('ID'), $size = '28', $default = '', $alt = '', $args = array('class' => 'author_photo rounded-full')); ?>
               <h4
-                class="author_name text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-400 mr-3 text-xs font-bold">
+                class="author_name text-slate-500 dark:text-slate-300 hover:text-slate-700 dark:hover:text-slate-400 mr-3 text-xs font-bold">
                 <?php the_author_posts_link(); ?>
               </h4>
               <h5 class="post_date text-slate-500 dark:text-slate-300 text-xs"><?php the_date('M d, Y'); ?></h5>
@@ -660,7 +660,7 @@ get_header('topnav'); ?>
                     foreach ($categories as $index => $category) {
                       $category_link = get_category_link($category->term_id);
                       echo '<li class="category-item category-' . esc_attr($index) . '">
-                                        <a class="text-sm bg-slate-200 dark:bg-slate-900 py-1 px-2 rounded text-slate-700 dark:text-slate-300 hover:text-slate-900" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>
+                                        <a class="text-sm bg-slate-200 dark:bg-slate-900 py-1 px-2 rounded text-slate-700 dark:text-slate-300 hover:text-slate-700" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a>
                                       </li>';
                     }
                   }

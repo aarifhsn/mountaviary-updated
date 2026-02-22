@@ -19,7 +19,7 @@ get_header('topnav');
         <article <?php post_class(''); ?>>
 
           <!-- Title -->
-          <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight text-slate-900 dark:text-slate-50 mb-3">
+          <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight text-slate-700 dark:text-slate-50 mb-3">
             <?php single_post_title(); ?>
           </h1>
 

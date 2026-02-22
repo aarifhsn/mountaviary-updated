@@ -15,7 +15,7 @@ get_header('topnav');
 			<p class="text-xs font-bold uppercase tracking-widest text-slate-300 dark:text-slate-600 mb-2"
 				style="letter-spacing:1.5px;">Archive</p>
 			<?php the_archive_title(
-				'<h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50">',
+				'<h1 class="text-2xl sm:text-3xl font-extrabold text-slate-700 dark:text-slate-50">',
 				'</h1>'
 			); ?>
 			<?php the_archive_description(
@@ -66,7 +66,7 @@ get_header('topnav');
 							</div>
 
 							<!-- Title -->
-							<h3 class="font-bold leading-snug text-slate-900 dark:text-slate-100 mb-1" style="font-size:16px;">
+							<h3 class="font-bold leading-snug text-slate-700 dark:text-slate-100 mb-1" style="font-size:16px;">
 								<a href="<?php the_permalink(); ?>"
 									class="no-underline hover:text-slate-500 dark:hover:text-slate-300 transition-colors">
 									<?php the_title(); ?>

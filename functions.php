@@ -90,6 +90,7 @@ include_once('inc/metabox.php');
 include_once('inc/hook.php');
 //include_once ('inc/shortcodes.php');
 //include_once ('inc/custom_posts.php');
+include_once('inc/contact_form_handler.php');
 require('inc/customizer-color.php');
 
 //--------- All CPT ---------------- //

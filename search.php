@@ -17,7 +17,7 @@ get_header('topnav');
 				style="letter-spacing:1.5px;">
 				<?php esc_html_e('Search results for', 'mountaviary'); ?>
 			</p>
-			<h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50">
+			<h1 class="text-2xl sm:text-3xl font-extrabold text-slate-700 dark:text-slate-50">
 				&ldquo;<?php echo esc_html(get_search_query()); ?>&rdquo;
 			</h1>
 			<?php if (have_posts()): ?>
@@ -72,7 +72,7 @@ get_header('topnav');
 							</div>
 
 							<!-- Title -->
-							<h3 class="font-bold leading-snug text-slate-900 dark:text-slate-100 mb-1" style="font-size:15px;">
+							<h3 class="font-bold leading-snug text-slate-700 dark:text-slate-100 mb-1" style="font-size:15px;">
 								<a href="<?php the_permalink(); ?>"
 									class="no-underline hover:text-slate-500 dark:hover:text-slate-300 transition-colors">
 									<?php the_title(); ?>

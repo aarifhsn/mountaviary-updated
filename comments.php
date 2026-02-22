@@ -15,7 +15,7 @@ if (post_password_required()) {
 	<?php if (have_comments()): ?>
 
 		<!-- Comments count title -->
-		<h2 class="text-lg font-extrabold text-slate-900 dark:text-slate-50 mb-6">
+		<h2 class="text-lg font-extrabold text-slate-700 dark:text-slate-50 mb-6">
 			<?php
 			$count = get_comments_number();
 			if ('1' === $count) {
@@ -62,8 +62,8 @@ if (post_password_required()) {
 	<!-- Comment form -->
 	<?php
 	comment_form([
-		'title_reply' => '<span class="text-lg font-extrabold text-slate-900 dark:text-slate-50">Leave a comment</span>',
-		'title_reply_to' => '<span class="text-lg font-extrabold text-slate-900 dark:text-slate-50">Reply to %s</span>',
+		'title_reply' => '<span class="text-lg font-extrabold text-slate-700 dark:text-slate-50">Leave a comment</span>',
+		'title_reply_to' => '<span class="text-lg font-extrabold text-slate-700 dark:text-slate-50">Reply to %s</span>',
 		'cancel_reply_link' => 'Cancel',
 		'label_submit' => 'Post Comment',
 		'class_submit' => 'comment-submit-btn',

@@ -29,7 +29,7 @@
         </svg>
         <div>
           <div style="font-size:14px; font-weight:800; letter-spacing:-0.3px; line-height:1.1;"
-            class="text-slate-900 dark:text-white">
+            class="text-slate-700 dark:text-white">
             arif <span style="font-weight:300;">hassan</span>
           </div>
           <div style="font-size:7px; font-weight:700; letter-spacing:3px; text-transform:uppercase; line-height:1.4;"

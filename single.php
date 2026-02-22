@@ -41,11 +41,11 @@ get_header('topnav');
 
           <!-- Title -->
           <?php if (is_singular()): ?>
-            <h1 class="leading-[3rem] text-3xl sm:text-4xl font-extrabold  text-slate-900 dark:text-slate-50 mb-4">
+            <h1 class="leading-[3rem] text-3xl sm:text-4xl font-extrabold  text-slate-700 dark:text-slate-50 mb-4">
               <?php the_title(); ?>
             </h1>
           <?php else: ?>
-            <h2 class="leading-[3rem] text-2xl font-extrabold  text-slate-900 dark:text-slate-50 mb-4">
+            <h2 class="leading-[3rem] text-2xl font-extrabold  text-slate-700 dark:text-slate-50 mb-4">
               <a href="<?php echo esc_url(get_permalink()); ?>"
                 class="no-underline hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
                 <?php the_title(); ?>
@@ -115,7 +115,7 @@ get_header('topnav');
                 <span class="text-xs font-bold uppercase tracking-widest text-slate-300 dark:text-slate-600"
                   style="letter-spacing:1.5px;">‹ Previous</span>
                 <span
-                  class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors leading-snug">
+                  class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-700 dark:group-hover:text-slate-100 transition-colors leading-snug">
                   <?php echo esc_html(get_the_title($prev)); ?>
                 </span>
               </a>
@@ -129,7 +129,7 @@ get_header('topnav');
                 <span class="text-xs font-bold uppercase tracking-widest text-slate-300 dark:text-slate-600"
                   style="letter-spacing:1.5px;">Next ›</span>
                 <span
-                  class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors leading-snug">
+                  class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-700 dark:group-hover:text-slate-100 transition-colors leading-snug">
                   <?php echo esc_html(get_the_title($next)); ?>
                 </span>
               </a>
