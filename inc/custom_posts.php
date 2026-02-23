@@ -120,15 +120,15 @@ add_action('init', 'mountaviary_custom_posts_init');
 function mount_postsbycategory($atts)
 {
     $atts = shortcode_atts(array(
-        'posts_per_page'  => 5,
-        'category_name'   => 'curated',
+        'posts_per_page' => 5,
+        'category_name' => 'curated',
     ), $atts);
 
-    $paged     = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $the_query = new WP_Query(array(
-        'category_name'  => $atts['category_name'],
+        'category_name' => $atts['category_name'],
         'posts_per_page' => $atts['posts_per_page'],
-        'paged'          => $paged,
+        'paged' => $paged,
     ));
 
     $string = '';
@@ -140,11 +140,11 @@ function mount_postsbycategory($atts)
         while ($the_query->have_posts()):
             $the_query->the_post();
 
-            $cats  = get_the_category();
+            $cats = get_the_category();
             $thumb = has_post_thumbnail()
                 ? get_the_post_thumbnail(null, 'medium', [
                     'class' => 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]',
-                  ])
+                ])
                 : null;
 
             $cat_badge = '';
@@ -157,7 +157,7 @@ function mount_postsbycategory($atts)
                         hover:bg-emerald-100 dark:hover:bg-emerald-900"
                     style="font-size:10px; letter-spacing:1.5px;">'
                     . esc_html($cats[0]->name) .
-                '</a>';
+                    '</a>';
                 $cat_badge .= '<span class="text-slate-200 dark:text-slate-700">·</span>';
             }
 
@@ -176,8 +176,8 @@ function mount_postsbycategory($atts)
                 <div class="flex items-center gap-2 mb-1.5">
                   ' . $cat_badge . '
                   <span class="text-xs text-slate-400 dark:text-slate-500">'
-                    . get_the_date('F j, Y') .
-                  '</span>
+                . get_the_date('F j, Y') .
+                '</span>
                 </div>
 
                 <h3 class="font-bold leading-snug text-slate-900 dark:text-slate-100 mb-1" style="font-size:15px;">
@@ -200,11 +200,11 @@ function mount_postsbycategory($atts)
 
         // Pagination
         $links = paginate_links(array(
-            'total'     => $the_query->max_num_pages,
-            'current'   => $paged,
+            'total' => $the_query->max_num_pages,
+            'current' => $paged,
             'prev_text' => '‹',
             'next_text' => '›',
-            'type'      => 'array',
+            'type' => 'array',
         ));
 
         if ($links) {
@@ -213,15 +213,14 @@ function mount_postsbycategory($atts)
                 $string .= '<div>' . $link . '</div>';
             }
             $string .= '</div>';
-        }
-
-    else:
-        $string .= '
+        } else {
+            $string .= '
         <div class="text-center py-12">
           <p class="text-4xl mb-4">📂</p>
           <p class="text-base font-semibold text-slate-700 dark:text-slate-300 mb-1">No posts found</p>
           <p class="text-sm text-slate-400 dark:text-slate-500">Nothing has been published in this category yet.</p>
         </div>';
+        }
     endif;
 
     wp_reset_postdata();
