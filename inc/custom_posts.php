@@ -119,74 +119,116 @@ add_action('init', 'mountaviary_custom_posts_init');
 
 function mount_postsbycategory($atts)
 {
-    // Extract shortcode attributes
     $atts = shortcode_atts(array(
-        'posts_per_page' => 5, // Default value for posts per page
-        'category_name' => 'curated', // Default value for category name
+        'posts_per_page'  => 5,
+        'category_name'   => 'curated',
     ), $atts);
 
-    // Initialize the string variable
-    $string = '';
-
-    // Get the current page number
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-    // the query
+    $paged     = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $the_query = new WP_Query(array(
-        'category_name' => $atts['category_name'], // Use the dynamic category name
-        'posts_per_page' => $atts['posts_per_page'], // Use the dynamic value
-        'paged' => $paged // Pagination
+        'category_name'  => $atts['category_name'],
+        'posts_per_page' => $atts['posts_per_page'],
+        'paged'          => $paged,
     ));
 
-    // The Loop
-    if ($the_query->have_posts()) {
-        while ($the_query->have_posts()) {
+    $string = '';
+
+    if ($the_query->have_posts()):
+
+        $string .= '<div class="space-y-0">';
+
+        while ($the_query->have_posts()):
             $the_query->the_post();
-            // Get the post ID
-            $post_id = get_the_ID();
 
-            // Start output buffering
-            ob_start();
-            // Start post_page_content div
-            $string .= '<div class="post_page_content py-8 border-b-2 border-slate-200">';
-            if (has_post_thumbnail()) {
-                $string .= '<div class="thumbnail overflow-hidden">';
-                $string .= '<a href="' . get_permalink() . '">' . get_the_post_thumbnail(null, 'medium', array("class" => "w-full h-auto hover:scale-110 duration-300 rounded-t-lg")) . '</a>';
-                $string .= '</div>';
+            $cats  = get_the_category();
+            $thumb = has_post_thumbnail()
+                ? get_the_post_thumbnail(null, 'medium', [
+                    'class' => 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]',
+                  ])
+                : null;
+
+            $cat_badge = '';
+            if (!empty($cats)) {
+                $cat_badge .= '<a href="' . esc_url(get_category_link($cats[0]->term_id)) . '"
+                    class="inline-block px-2 py-0.5 rounded-md no-underline font-bold uppercase transition-colors
+                        text-emerald-700 dark:text-emerald-400
+                        bg-emerald-50 dark:bg-emerald-950
+                        border border-emerald-200 dark:border-emerald-800
+                        hover:bg-emerald-100 dark:hover:bg-emerald-900"
+                    style="font-size:10px; letter-spacing:1.5px;">'
+                    . esc_html($cats[0]->name) .
+                '</a>';
+                $cat_badge .= '<span class="text-slate-200 dark:text-slate-700">·</span>';
             }
-            $string .= '<div class="my-4 text-xl font-semibold text-slate-700 break-words">';
 
-            $string .= '<h2 class="entry-title"><a class="hover:text-slate-950" href="' . esc_url(get_permalink()) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
+            $string .= '
+            <article class="group flex gap-4 py-5 border-b border-slate-100 dark:border-slate-800 last:border-0">
 
-            $string .= '<h4 class="text-sm text-slate-500 mb-2 py-4 font-medium leading-6">' . get_the_excerpt() . '</h4>';
+              ' . ($thumb ? '
+              <a href="' . esc_url(get_permalink()) . '"
+                class="flex-shrink-0 overflow-hidden rounded-xl no-underline"
+                style="width:96px; height:72px;">
+                ' . $thumb . '
+              </a>' : '') . '
 
-            $string .= '</div>';
+              <div class="flex-1 min-w-0">
 
-            // End post_page_content div
-            $string .= '</div>';
-            // End output buffering, get contents, and append to the string
-            $string .= ob_get_clean();
-        }
-        // Pagination
-        $string .= '<div class="pagination">';
-        $string .= paginate_links(array(
-            'total' => $the_query->max_num_pages
-        ));
+                <div class="flex items-center gap-2 mb-1.5">
+                  ' . $cat_badge . '
+                  <span class="text-xs text-slate-400 dark:text-slate-500">'
+                    . get_the_date('F j, Y') .
+                  '</span>
+                </div>
+
+                <h3 class="font-bold leading-snug text-slate-900 dark:text-slate-100 mb-1" style="font-size:15px;">
+                  <a href="' . esc_url(get_permalink()) . '"
+                    class="no-underline hover:text-slate-500 dark:hover:text-slate-300 transition-colors">
+                    ' . esc_html(get_the_title()) . '
+                  </a>
+                </h3>
+
+                <p class="text-xs leading-relaxed text-slate-400 dark:text-slate-500 line-clamp-2">
+                  ' . wp_trim_words(get_the_excerpt(), 18, '…') . '
+                </p>
+
+              </div>
+            </article>';
+
+        endwhile;
+
         $string .= '</div>';
-    } else {
-        // no posts found
-        ob_start();
-        get_template_part("404");
-        $string .= ob_get_clean();
-    }
 
-    // Restore original Post Data
+        // Pagination
+        $links = paginate_links(array(
+            'total'     => $the_query->max_num_pages,
+            'current'   => $paged,
+            'prev_text' => '‹',
+            'next_text' => '›',
+            'type'      => 'array',
+        ));
+
+        if ($links) {
+            $string .= '<div class="flex items-center justify-center gap-1.5 mt-10">';
+            foreach ($links as $link) {
+                $string .= '<div>' . $link . '</div>';
+            }
+            $string .= '</div>';
+        }
+
+    else:
+        $string .= '
+        <div class="text-center py-12">
+          <p class="text-4xl mb-4">📂</p>
+          <p class="text-base font-semibold text-slate-700 dark:text-slate-300 mb-1">No posts found</p>
+          <p class="text-sm text-slate-400 dark:text-slate-500">Nothing has been published in this category yet.</p>
+        </div>';
+    endif;
+
     wp_reset_postdata();
 
-    // Return the result
     return $string;
 }
-// Add a shortcode
+
 add_shortcode('categoryposts', 'mount_postsbycategory');
 
 
