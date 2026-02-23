@@ -137,7 +137,7 @@ if ($is_first_page && $is_featured_present) {
                   <span class="text-slate-200 dark:text-slate-700">·</span>
                 <?php endif; ?>
                 <span class="text-xs text-slate-400 dark:text-slate-500">
-                  <?php echo get_the_date('F j, Y', $featured_post); ?>
+                  <?php echo get_the_date('M j, Y', $featured_post); ?>
                 </span>
               </div>
 
@@ -215,7 +215,7 @@ if ($is_first_page && $is_featured_present) {
                       <span class="text-slate-200 dark:text-slate-700">·</span>
                     <?php endif; ?>
                     <span class="text-slate-400 dark:text-slate-500" style="font-size:11px;">
-                      <?php echo get_the_date('F j, Y', $gp); ?>
+                      <?php echo get_the_date('M j, Y', $gp); ?>
                     </span>
                   </div>
 
@@ -312,7 +312,7 @@ if ($is_first_page && $is_featured_present) {
                   <span class="text-slate-200 dark:text-slate-700">·</span>
                 <?php endif; ?>
                 <span class="text-slate-400 dark:text-slate-500" style="font-size:11px;">
-                  <?php echo get_the_date('F j, Y', $lp); ?>
+                  <?php echo get_the_date('M j, Y', $lp); ?>
                 </span>
               </div>
 

@@ -35,7 +35,7 @@ get_header('topnav');
               <span class="text-slate-200 dark:text-slate-700">·</span>
             <?php endif; ?>
             <span class="text-xs text-slate-400 dark:text-slate-500">
-              <?php the_date('F j, Y'); ?>
+              <?php the_date('M j, Y'); ?>
             </span>
           </div>
 
