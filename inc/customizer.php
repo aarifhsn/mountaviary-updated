@@ -875,6 +875,32 @@ function mountaviary_customizer_register($wp_customize)
         return $checked == 1 ? 1 : '';
     }
 
+    // Add Section
+    $wp_customize->add_section('mountaviary_homepage_settings', array(
+        'title' => __('Homepage Posts Settings', 'mountaviary'),
+        'priority' => 120,
+    ));
+
+    // Add Setting
+    $wp_customize->add_setting('homepage_posts_per_page', array(
+        'default' => 30,
+        'sanitize_callback' => 'absint',
+        'transport' => 'refresh',
+    ));
+
+    // Add Control
+    $wp_customize->add_control('homepage_posts_per_page', array(
+        'label' => __('Posts Per Page (Homepage)', 'mountaviary'),
+        'description' => __('Number of posts to show on the homepage.', 'mountaviary'),
+        'section' => 'mountaviary_homepage_settings',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => 1,
+            'max' => 100,
+            'step' => 1,
+        ),
+    ));
+
 }
 
 add_action('customize_register', 'mountaviary_customizer_register');

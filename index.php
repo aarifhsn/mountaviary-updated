@@ -31,7 +31,7 @@ if ($is_first_page) {
 
   if ($featured_query->have_posts()) {
     $featured_query->the_post();
-    $featured_post = get_post();
+    $featured_post = $featured_query->post;
     $is_featured_present = true;
   }
   wp_reset_postdata();
@@ -43,7 +43,7 @@ $exclude_ids = $is_featured_present ? [$featured_post->ID] : [];
 $normal_query = new WP_Query([
   'post_type' => 'post',
   'post__not_in' => $exclude_ids,
-  'posts_per_page' => 30,
+  'posts_per_page' => get_theme_mod('homepage_posts_per_page', 30),
   'paged' => $paged,
   'orderby' => 'date',
   'order' => 'DESC',
@@ -154,6 +154,7 @@ if ($is_first_page && $is_featured_present) {
               </p>
 
             </article>
+            <?php wp_reset_postdata(); ?>
           <?php endif; ?>
 
           <!-- RIGHT: 2×2 grid -->
